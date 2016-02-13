@@ -55,17 +55,23 @@
       </div>
 
       <div class="view-group">
-        <fieldset>
-          <label for="msg">Button Grouping</label>
-          <button its-control="button" value="01">01</button>
-          <button its-control="button" value="02">02</button>
-          <button its-control="button" value="03">03</button>
-        </fieldset>
-        <pre its-view="button"></pre>
-
-        <button its-control="button-2" value="99">99</button>
-        <button its-control="button-2" value="100">100</button>
-        <pre its-view="button-2"></pre>
+        <label for="msg">Button Grouping</label>
+        <div class="col-container">
+          <div class="col-2">
+            <fieldset>
+              <button its-control="button" value="1">1</button>
+              <button its-control="button" value="2">2</button>
+              <button its-control="button" value="3">3</button>
+            </fieldset>
+            <pre its-view="button"></pre>
+          </div>
+          <div class="col-2">
+            <button its-control="button-2" value="A">A</button>
+            <button its-control="button-2" value="B">B</button>
+            <button its-control="button-2" value="C">C</button>
+            <pre its-view="button-2"></pre>
+          </div>
+        </div>
       </div>
 
     </div>

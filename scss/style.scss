@@ -108,6 +108,9 @@ fieldset{
 	padding: 15px;
 	height: 145px;
 }
+.col-2{
+	@include equalSpaced(2, 1%, 100%);
+}
 
 .active{
 	background:#D2185C;
