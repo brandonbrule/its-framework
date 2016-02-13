@@ -18,6 +18,10 @@ var Export = (function() {
       exportdata[data.control] = data.element.value;
     }
 
+    if (exportdata[data.control] === ''){
+      delete exportdata[data.control]
+    }
+
     if(data.control === 'data-exporttest'){
       update();
     }
