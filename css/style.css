@@ -16,8 +16,8 @@ html {
 
 body {
   font-family: arial;
-  background: #EDEDF2;
-  color: #356157; }
+  background: #A9CBA6;
+  color: #7EBEA3; }
 
 h1 {
   color: #53A08E;
@@ -25,7 +25,7 @@ h1 {
   font-weight: normal; }
 
 pre {
-  border-top: 1px dotted #fff;
+  border-top: 1px dotted #7EBEA3;
   padding-top: 5px;
   margin: 5px 0; }
 
@@ -37,7 +37,8 @@ input, textarea {
   width: 100%;
   margin-bottom: 5px;
   padding: 5px;
-  border: none; }
+  border: 2px solid #7EBEA3;
+  color: #7EBEA3; }
 
 fieldset {
   border: none;
@@ -50,7 +51,7 @@ fieldset {
   margin-top: 1%;
   float: left;
   padding: 15px;
-  height: 145px; }
+  height: 125px; }
   .view-group:first-child {
     margin-left: 0; }
   .view-group:nth-child(3n + 1) {
@@ -77,49 +78,11 @@ fieldset {
     margin-top: 0; }
 
 .active {
-  background: #D2185C;
+  background: #7EBEA3;
   color: #fff;
-  border: 1px solid #D2185C; }
+  border: 1px solid #7EBEA3; }
 
-.view-group:nth-child(1) {
-  background: #7EBEA3; }
-.view-group:nth-child(2) {
-  background: #A9CBA6; }
-.view-group:nth-child(3) {
-  background: #7EBEA3; }
-.view-group:nth-child(4) {
-  background: #A9CBA6; }
-.view-group:nth-child(5) {
-  background: #7EBEA3; }
-.view-group:nth-child(6) {
-  background: #A9CBA6; }
-.view-group:nth-child(7) {
-  background: #7EBEA3; }
-.view-group:nth-child(8) {
-  background: #A9CBA6; }
-.view-group:nth-child(9) {
-  background: #7EBEA3; }
-.view-group:nth-child(10) {
-  background: #A9CBA6; }
-.view-group:nth-child(11) {
-  background: #7EBEA3; }
-.view-group:nth-child(12) {
-  background: #A9CBA6; }
-.view-group:nth-child(13) {
-  background: #7EBEA3; }
-.view-group:nth-child(14) {
-  background: #A9CBA6; }
-.view-group:nth-child(15) {
-  background: #7EBEA3; }
-.view-group:nth-child(16) {
-  background: #A9CBA6; }
-.view-group:nth-child(17) {
-  background: #7EBEA3; }
-.view-group:nth-child(18) {
-  background: #A9CBA6; }
-.view-group:nth-child(19) {
-  background: #7EBEA3; }
-.view-group:nth-child(20) {
-  background: #A9CBA6; }
+.view-group {
+  background: #fff; }
 
 /*# sourceMappingURL=style.css.map */

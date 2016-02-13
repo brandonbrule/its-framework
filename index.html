@@ -32,15 +32,27 @@
           <label for="msg">Multiple Views</label>
           <input its-control="input2" value="" type="text">
         </fieldset>
-        <pre its-view="input2"></pre>
-        <pre its-view="input2"></pre>
+        <div class="col-container">
+          <div class="col-2">
+            <pre its-view="input2"></pre>
+          </div>
+          <div class="col-2">
+            <pre its-view="input2"></pre>
+          </div>
+        </div>
       </div>
 
       <div class="view-group">
         <fieldset>
           <label for="msg">Shared Inputs</label>
-          <input its-control="input3" value="" type="text">
-          <input its-control="input3" value="" type="text">
+          <div class="col-container">
+            <div class="col-2">
+              <input its-control="input3" type="text">
+            </div>
+            <div class="col-2">
+              <input its-control="input3" type="text">
+            </div>
+          </div>
         </fieldset>
         <pre its-view="input3"></pre>
       </div>
@@ -48,8 +60,14 @@
       <div class="view-group">
         <fieldset>
           <label for="msg">Shared Types</label>
-          <input its-control="shared-numbers" type="number" max="200" value="" >
-          <input its-control="shared-numbers" type="range" max="200" value="" >
+          <div class="col-container">
+            <div class="col-2">
+              <input its-control="shared-numbers" type="number" max="200" value="" >
+            </div>
+            <div class="col-2">
+              <input its-control="shared-numbers" type="range" max="200" value="" >
+            </div>
+          </div>
         </fieldset>
         <pre its-view="shared-numbers"></pre>
       </div>

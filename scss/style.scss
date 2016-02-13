@@ -63,19 +63,11 @@ html {
   margin: 0 auto;
 }
 
-// Dark Pink
-$color-1: #A9CBA6;
-$color-2: #7EBEA3;
-
-
-$colors: $color-1, $color-2;
-
-
 
 body {
 	font-family: arial;
-	background: #EDEDF2; 
-	color: #356157;
+	background: #A9CBA6; 
+	color: #7EBEA3;
 }
 h1{
 	color:#53A08E;
@@ -83,7 +75,7 @@ h1{
 	font-weight: normal;
 }
 pre{
-	border-top:1px dotted #fff;
+	border-top:1px dotted #7EBEA3;
 	padding-top:5px;
 	margin: 5px 0;
 }
@@ -95,7 +87,8 @@ input, textarea{
 	width:100%;
 	margin-bottom:5px;
 	padding:5px;
-	border: none;
+	border: 2px solid #7EBEA3;
+	color:#7EBEA3;
 }
 fieldset{
 	border: none;
@@ -106,25 +99,20 @@ fieldset{
 .view-group{
 	@include equalSpaced(3, 1%, 100%);
 	padding: 15px;
-	height: 145px;
+	height: 125px;
 }
 .col-2{
 	@include equalSpaced(2, 1%, 100%);
 }
 
 .active{
-	background:#D2185C;
+	background:#7EBEA3;
 	color:#fff;
-	border: 1px solid #D2185C;
+	border: 1px solid #7EBEA3;
 }
 
 
 
-$n : 20;
 .view-group{
-  @for $i from 1 through $n {
-    &:nth-child(#{$i}) {
-       background: nth($colors, $i%2+1);
-    }
-  }
+	background:#fff;
 }
