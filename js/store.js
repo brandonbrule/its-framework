@@ -6,6 +6,7 @@ var Store = (function() {
     Buttons.init(data);
     Export.init(data);
     Dynamic.init(data);
+    Troubleshoot.control(data);
   };
 
   return {

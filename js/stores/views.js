@@ -56,7 +56,7 @@ var Views = (function() {
           }
 
           // Keep other input types in sync
-          if ( element.getAttribute('type') !== 'radio' && element.getAttribute('type') !== 'checkbox'){
+          if ( element.getAttribute('type') !== 'radio' && element.getAttribute('type') !== 'checkbox' && element.getAttribute('type') !== 'submit'){
             element.value = data.value;
           }
 

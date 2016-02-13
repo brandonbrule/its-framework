@@ -18,6 +18,8 @@ var Dispatch = (function() {
     data.event_type = e.type;
     data.element = e.target;
     data.element_type = e.target.nodeName;
+    data.type = e.target.getAttribute('type');
+    
 
     // If it's a control
     if (e.target.hasAttribute('its-control')) {
@@ -33,10 +35,10 @@ var Dispatch = (function() {
       data.view = false;
     }
 
-    if ( e.target.getAttribute('type') !== 'submit') {
+    if ( data.type !== 'submit') {
       // Value
       if (e.target.value) {
-        if (e.target.getAttribute('type') === 'checkbox') {
+        if (data.type === 'checkbox') {
           if (e.target.checked){
             data.value = e.target.value;
           } else {

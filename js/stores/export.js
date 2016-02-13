@@ -4,13 +4,13 @@ var Export = (function() {
 
   var update = function(){
     var str = JSON.stringify(exportdata);
-    var el = document.querySelector('[its-view="data-export"]');
+    var el = document.querySelector('[its-view="export"]');
     el.innerHTML=str;
   }
   
   var init = function(data) {
     
-    if(data.element.getAttribute('type') !== 'submit'){
+    if(data.type !== 'submit'){
       exportdata[data.control] = data.element.value;
     }
 
@@ -18,7 +18,7 @@ var Export = (function() {
       delete exportdata[data.control]
     }
 
-    if(data.control === 'data-exportjson'){
+    if(data.control === 'exportjson'){
       update();
     }
     

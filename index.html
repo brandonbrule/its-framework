@@ -147,7 +147,7 @@
       <div class="view-group">
         <label for="msg">Export?</label>
         <fieldset>
-          <input its-control="data-exportjson" value="Get JSON" type="submit">
+          <input its-control="exportjson" value="Get JSON" type="submit">
         </fieldset>
       </div>
 
@@ -158,7 +158,14 @@
     <div class="col-container">
       <div class="export-container">
         <label>JSON</label>
-        <pre its-view="data-export"></pre>
+        <pre its-view="export"></pre>
+      </div>
+    </div>
+
+    <div class="col-container">
+      <div class="export-container">
+        <label>Event Data</label>
+        <div id="its-wrapper"></div>
       </div>
     </div>
 
@@ -171,6 +178,7 @@
     <script src="js/stores/buttons.js"></script>
     <script src="js/stores/export.js"></script>
     <script src="js/stores/dynamic.js"></script>
+    <script src="js/stores/troubleshoot.js"></script>
     
   </body>
 </html>

@@ -10,7 +10,6 @@ var Dynamic = (function() {
       view.appendChild(div);
       Views.cacheViews();
     }
-    
   };
 
   return {
