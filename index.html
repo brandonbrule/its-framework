@@ -12,22 +12,22 @@
       <div class="view-group">
         <label for="msg">Single Input</label>
         <fieldset>
-          <input its-control="input1" value="" type="text">
+          <input its-control="single" value="" type="text">
         </fieldset>
-        <pre its-view="input1"></pre>
+        <pre its-view="single"></pre>
       </div>
 
       <div class="view-group">
         <label for="msg">Multiple Views</label>
         <fieldset>
-          <input its-control="input2" value="" type="text">
+          <input its-control="multi" value="" type="text">
         </fieldset>
         <div class="col-container">
           <div class="col-2">
-            <pre its-view="input2"></pre>
+            <pre its-view="multi"></pre>
           </div>
           <div class="col-2">
-            <pre its-view="input2"></pre>
+            <pre its-view="multi"></pre>
           </div>
         </div>
       </div>
@@ -37,14 +37,14 @@
         <fieldset>
           <div class="col-container">
             <div class="col-2">
-              <input its-control="input3" type="text">
+              <input its-control="shared" type="text">
             </div>
             <div class="col-2">
-              <input its-control="input3" type="text">
+              <input its-control="shared" type="text">
             </div>
           </div>
         </fieldset>
-        <pre its-view="input3"></pre>
+        <pre its-view="shared"></pre>
       </div>
 
       <div class="view-group">
@@ -52,14 +52,14 @@
         <fieldset>
           <div class="col-container">
             <div class="col-2">
-              <input its-control="shared-numbers" type="number" max="200" value="" >
+              <input its-control="shared-types" type="number" max="200" value="" >
             </div>
             <div class="col-2">
-              <input its-control="shared-numbers" type="range" max="200" value="" >
+              <input its-control="shared-types" type="range" max="200" value="" >
             </div>
           </div>
         </fieldset>
-        <pre its-view="shared-numbers"></pre>
+        <pre its-view="shared-types"></pre>
       </div>
 
       <div class="view-group">
@@ -67,19 +67,19 @@
         <div class="col-container">
           <div class="col-2">
             <fieldset>
-              <button its-control="button" value="1">1</button>
-              <button its-control="button" value="2">2</button>
-              <button its-control="button" value="3">3</button>
+              <button its-control="buttons" value="1">1</button>
+              <button its-control="buttons" value="2">2</button>
+              <button its-control="buttons" value="3">3</button>
             </fieldset>
-            <pre its-view="button"></pre>
+            <pre its-view="buttons"></pre>
           </div>
           <div class="col-2">
             <fieldset>
-              <button its-control="button-2" value="A">A</button>
-              <button its-control="button-2" value="B">B</button>
-              <button its-control="button-2" value="C">C</button>
+              <button its-control="buttons-2" value="A">A</button>
+              <button its-control="buttons-2" value="B">B</button>
+              <button its-control="buttons-2" value="C">C</button>
             </fieldset>
-            <pre its-view="button-2"></pre>
+            <pre its-view="buttons-2"></pre>
           </div>
         </div>
       </div>
@@ -127,10 +127,19 @@
               <pre its-view="checkbox2"></pre>
             </div>
           </div>
-        
+      </div>
+
+      <div class="view-group">
+        <label for="msg">Export?</label>
+        <fieldset>
+          <input its-control="data-exporttest" value="Get JSON" type="submit">
+        </fieldset>
+        <pre its-view="data-exporttest"></pre>
       </div>
 
     </div>
+
+
 
     <div class="col-container">
       <div class="export-container">

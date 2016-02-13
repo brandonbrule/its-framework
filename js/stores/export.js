@@ -14,8 +14,11 @@ var Export = (function() {
   
   var init = function(data) {
     
-    if(data.control){
+    if(data.element.getAttribute('type') !== 'submit'){
       exportdata[data.control] = data.element.value;
+    }
+
+    if(data.control === 'data-exporttest'){
       update();
     }
     
