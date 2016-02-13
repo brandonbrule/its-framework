@@ -7,7 +7,6 @@ var Dispatch = (function() {
     element: null,
     type: null,
     value: null,
-    text: null,
     control: null,
     view: null,
     history: []
@@ -53,9 +52,9 @@ var Dispatch = (function() {
 
       // Text
       if (e.target.innerHTML) {
-        data.text = e.target.innerHTML;
+        data.innerHTML = e.target.innerHTML;
       } else {
-        data.text = null;
+        data.innerHTML = null;
       }
 
       // History
@@ -88,7 +87,7 @@ var Dispatch = (function() {
     // It's a submit button  
     } else {
       data.changed = false;
-      data.value = null;
+      data.value = data.element.value;
       data.innerHTML = null;
     }
 

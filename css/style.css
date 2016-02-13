@@ -12,7 +12,7 @@ html {
 
 .col-container {
   max-width: 760px;
-  margin: 0 auto; }
+  margin: 1% auto; }
 
 body {
   font-family: arial;
@@ -128,9 +128,6 @@ fieldset {
     margin-top: 0; }
   .col-3:nth-child(3) {
     margin-top: 0; }
-
-.export-container {
-  margin-top: 2%; }
 
 .view-dynamic .dynamic-row {
   width: 32.66667%;

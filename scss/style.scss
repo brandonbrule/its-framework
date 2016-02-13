@@ -60,7 +60,7 @@ html {
 .col-container{
   @extend .clearfix;
   max-width:760px;
-  margin: 0 auto;
+  margin: 1% auto;
 }
 
 
@@ -135,10 +135,6 @@ fieldset{
 
 .col-3{
 	@include equalSpaced(3, 1%, 100%);
-}
-
-.export-container{
-	margin-top:2%;
 }
 
 .view-dynamic{
