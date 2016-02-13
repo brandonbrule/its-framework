@@ -71,7 +71,7 @@ var Dispatch = (function() {
         data.history.pop();
       }
 
-      if (data.value === data.history[0].value || data.innerHTML === data.history[0].innerHTML) {
+      if ( (data.value === data.history[0].value || data.innerHTML === data.history[0].innerHTML ) && data.history.length <= 2) {
         data.changed = false;
       } else {
         data.changed = true;
@@ -80,6 +80,14 @@ var Dispatch = (function() {
           innerHTML: e.target.innerHTML
         })
       }
+
+      if (data.type === 'checkbox' || data.type === 'radio'){
+        data.changed = true;
+      }
+
+    // It's a submit button  
+    } else {
+      data.changed = false;
     }
 
     return data;
