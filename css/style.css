@@ -61,41 +61,43 @@ fieldset {
   padding: 15px;
   background: #fff; }
 
-@media screen and (max-width: 399px) {
-  .view-group {
-    margin: 10px 0; } }
-@media screen and (min-width: 400px) and (max-width: 759px) {
-  .view-group {
-    width: 49%;
-    margin-left: 2%;
-    margin-top: 2%;
-    float: left;
-    height: 125px; }
-    .view-group:first-child {
-      margin-left: 0; }
-    .view-group:nth-child(2n + 1) {
-      margin-left: 0; }
-    .view-group:nth-child(1) {
-      margin-top: 0; }
-    .view-group:nth-child(2) {
-      margin-top: 0; } }
-@media screen and (min-width: 760px) {
-  .view-group {
-    width: 32%;
-    margin-left: 2%;
-    margin-top: 2%;
-    float: left;
-    height: 125px; }
-    .view-group:first-child {
-      margin-left: 0; }
-    .view-group:nth-child(3n + 1) {
-      margin-left: 0; }
-    .view-group:nth-child(1) {
-      margin-top: 0; }
-    .view-group:nth-child(2) {
-      margin-top: 0; }
-    .view-group:nth-child(3) {
-      margin-top: 0; } }
+.view-group {
+  overflow-y: scroll; }
+  @media screen and (max-width: 399px) {
+    .view-group {
+      margin: 10px 0; } }
+  @media screen and (min-width: 400px) and (max-width: 759px) {
+    .view-group {
+      width: 49%;
+      margin-left: 2%;
+      margin-top: 2%;
+      float: left;
+      height: 125px; }
+      .view-group:first-child {
+        margin-left: 0; }
+      .view-group:nth-child(2n + 1) {
+        margin-left: 0; }
+      .view-group:nth-child(1) {
+        margin-top: 0; }
+      .view-group:nth-child(2) {
+        margin-top: 0; } }
+  @media screen and (min-width: 760px) {
+    .view-group {
+      width: 32%;
+      margin-left: 2%;
+      margin-top: 2%;
+      float: left;
+      height: 125px; }
+      .view-group:first-child {
+        margin-left: 0; }
+      .view-group:nth-child(3n + 1) {
+        margin-left: 0; }
+      .view-group:nth-child(1) {
+        margin-top: 0; }
+      .view-group:nth-child(2) {
+        margin-top: 0; }
+      .view-group:nth-child(3) {
+        margin-top: 0; } }
 
 .col-2 {
   width: 49.5%;
@@ -129,6 +131,22 @@ fieldset {
 
 .export-container {
   margin-top: 2%; }
+
+.view-dynamic .dynamic-row {
+  width: 32.66667%;
+  margin-left: 1%;
+  margin-top: 1%;
+  float: left; }
+  .view-dynamic .dynamic-row:first-child {
+    margin-left: 0; }
+  .view-dynamic .dynamic-row:nth-child(3n + 1) {
+    margin-left: 0; }
+  .view-dynamic .dynamic-row:nth-child(1) {
+    margin-top: 0; }
+  .view-dynamic .dynamic-row:nth-child(2) {
+    margin-top: 0; }
+  .view-dynamic .dynamic-row:nth-child(3) {
+    margin-top: 0; }
 
 .active {
   background: #7EBEA3;

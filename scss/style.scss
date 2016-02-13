@@ -115,6 +115,7 @@ fieldset{
 }
 
 .view-group{
+	overflow-y:scroll;
 	@media screen and (max-width: 399px){
 		margin: 10px 0;
 	}
@@ -138,6 +139,10 @@ fieldset{
 
 .export-container{
 	margin-top:2%;
+}
+
+.view-dynamic{
+	.dynamic-row{@include equalSpaced(3, 1%, 100%);}
 }
 
 

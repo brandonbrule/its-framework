@@ -129,6 +129,20 @@
           </div>
       </div>
 
+      <div class="view-group view-dynamic">
+        <div class="col-container">
+          <div class="col-2">
+            <label for="msg">Dynamic</label>
+          </div>
+          <div class="col-2">
+            <input its-control="new" value="New" type="submit">
+          </div>
+        </div>
+        <fieldset>
+          <pre its-view="dynamic"></pre>
+        </fieldset>
+      </div>
+
       <div class="view-group">
         <label for="msg">Export?</label>
         <fieldset>
@@ -155,6 +169,7 @@
     <script src="js/stores/views.js"></script>
     <script src="js/stores/buttons.js"></script>
     <script src="js/stores/export.js"></script>
+    <script src="js/stores/dynamic.js"></script>
     
   </body>
 </html>

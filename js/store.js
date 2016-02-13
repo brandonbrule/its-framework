@@ -5,6 +5,7 @@ var Store = (function() {
     Views.init(data);
     Buttons.init(data);
     Export.init(data);
+    Dynamic.init(data);
   };
 
   return {
