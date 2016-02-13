@@ -69,7 +69,7 @@ var Dispatch = (function() {
       })
     }
 
-    Stores.init(data);
+    Store.init(data);
   };
 
   var init = function(e) {

@@ -1,5 +1,5 @@
 // Functions
-var Stores = (function() {
+var Store = (function() {
   
   var init = function(data) {
     Views.init(data);
