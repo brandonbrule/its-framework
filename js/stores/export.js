@@ -3,14 +3,10 @@ var Export = (function() {
   var exportdata = {};
 
   var update = function(){
-    var str = json(exportdata);
+    var str = JSON.stringify(exportdata);
     var el = document.querySelector('[its-view="data-export"]');
     el.innerHTML=str;
   }
-
-  var json = function(obj){
-    return JSON.stringify(obj);
-  };
   
   var init = function(data) {
     
@@ -22,7 +18,7 @@ var Export = (function() {
       delete exportdata[data.control]
     }
 
-    if(data.control === 'data-exporttest'){
+    if(data.control === 'data-exportjson'){
       update();
     }
     
