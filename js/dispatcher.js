@@ -11,9 +11,7 @@ var Dispatch = (function() {
     view: null,
     history: []
   };
-  // new message: raise newMessage event
   var Publish = function(e) {
-
     data.event_type = e.type;
     data.element = e.target;
     data.element_type = e.target.nodeName;

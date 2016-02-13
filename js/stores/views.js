@@ -38,8 +38,8 @@ var Views = (function() {
 
   var update = function(data, type) {
     var indexes = returnIndexes(cache[type].type, data.control);
-    [].forEach.call(indexes, function(index){
 
+    [].forEach.call(indexes, function(index){
       
       // Update Values for Controls
       if (type === 'controls'){
