@@ -40,28 +40,31 @@ var Views = (function() {
     var indexes = returnIndexes(cache[type].type, data.control);
 
     [].forEach.call(indexes, function(index){
+      var element = cache[type].element[index];
       
       // Update Values for Controls
       if (type === 'controls'){
 
         // Inputs, Text Areas, Everything But Buttons So Far
-        if (cache[type].element[index].nodeName !== 'BUTTON'){
+        if (element.nodeName !== 'BUTTON'){
 
-          if (cache[type].element[index].max < data.value && !cache[type].element[index].max && cache[type].element[index].getAttribute('type') !== 'text'){
-            cache[type].element[index].max = data.value;
+          // Max range adjustments if needed
+          if (element.getAttribute('type') === 'number' && element.getAttribute('type') === 'range'){
+            if (element.max < data.value && !element.max){
+              element.max = data.value;
+            }
           }
 
-
-          if ( cache[type].element[index].getAttribute('type') !== 'radio' && cache[type].element[index].getAttribute('type') !== 'checkbox'){
-            cache[type].element[index].value = data.value;
+          // Keep other input types in sync
+          if ( element.getAttribute('type') !== 'radio' && element.getAttribute('type') !== 'checkbox'){
+            element.value = data.value;
           }
 
         }
 
-
-      // Everything that isn't a control. AKA Views.
+      // If it's a View (Not a Control);
       } else {
-        cache[type].element[index].innerHTML = data.value;
+        element.innerHTML = data.value;
       }
     });
   };

@@ -18,10 +18,20 @@ var Dispatch = (function() {
 
     // Value
     if (e.target.value) {
-      data.value = e.target.value;
+      if (e.target.getAttribute('type') === 'checkbox') {
+        if (e.target.checked){
+          data.value = e.target.value;
+        } else {
+          data.value = null;
+        }
+      } else {
+        data.value = e.target.value;
+      }
     } else {
       data.value = null;
     }
+
+
 
     // Text
     if (e.target.innerHTML) {

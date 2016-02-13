@@ -10,16 +10,16 @@
     <div class="col-container">
 
       <div class="view-group">
+        <label for="msg">Single Input</label>
         <fieldset>
-          <label for="msg">Single Input</label>
           <input its-control="input1" value="" type="text">
         </fieldset>
         <pre its-view="input1"></pre>
       </div>
 
       <div class="view-group">
+        <label for="msg">Multiple Views</label>
         <fieldset>
-          <label for="msg">Multiple Views</label>
           <input its-control="input2" value="" type="text">
         </fieldset>
         <div class="col-container">
@@ -33,8 +33,8 @@
       </div>
 
       <div class="view-group">
+        <label for="msg">Shared Inputs</label>
         <fieldset>
-          <label for="msg">Shared Inputs</label>
           <div class="col-container">
             <div class="col-2">
               <input its-control="input3" type="text">
@@ -48,8 +48,8 @@
       </div>
 
       <div class="view-group">
+        <label for="msg">Shared Types</label>
         <fieldset>
-          <label for="msg">Shared Types</label>
           <div class="col-container">
             <div class="col-2">
               <input its-control="shared-numbers" type="number" max="200" value="" >
@@ -74,17 +74,19 @@
             <pre its-view="button"></pre>
           </div>
           <div class="col-2">
-            <button its-control="button-2" value="A">A</button>
-            <button its-control="button-2" value="B">B</button>
-            <button its-control="button-2" value="C">C</button>
+            <fieldset>
+              <button its-control="button-2" value="A">A</button>
+              <button its-control="button-2" value="B">B</button>
+              <button its-control="button-2" value="C">C</button>
+            </fieldset>
             <pre its-view="button-2"></pre>
           </div>
         </div>
       </div>
 
       <div class="view-group">
+        <label for="msg">Radio Inputs</label>
         <fieldset>
-          <label for="msg">Radio Inputs</label>
           <div class="col-container">
             <div class="col-3">
               <span>:D</span>
@@ -104,8 +106,8 @@
       </div>
 
       <div class="view-group">
+        <label for="msg">Checkboxes</label>
         <fieldset>
-          <label for="msg">Checkboxes</label>
           <div class="col-container">
             <div class="col-2">
               <span>One</span>
