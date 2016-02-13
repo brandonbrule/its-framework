@@ -38,7 +38,7 @@ var Views = (function() {
 
   var update = function(data, type) {
     var indexes = returnIndexes(cache[type].type, data.control);
-its.clearAll();
+
     [].forEach.call(indexes, function(index){
       
       // Update Values for Controls
@@ -51,10 +51,11 @@ its.clearAll();
             cache[type].element[index].max = data.value;
           }
 
-          if ( cache[type].element[index].getAttribute('type') !== 'radio' ){
+
+          if ( cache[type].element[index].getAttribute('type') !== 'radio' && cache[type].element[index].getAttribute('type') !== 'checkbox'){
             cache[type].element[index].value = data.value;
           }
-          
+
         }
 
 

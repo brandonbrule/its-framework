@@ -67,7 +67,7 @@ html {
 body {
 	font-family: arial;
 	background: #A9CBA6; 
-	color: #7EBEA3;
+	color: #69A089;
 	margin: 2%;
 }
 h1{
@@ -79,19 +79,24 @@ pre{
 	border-top:1px dotted #7EBEA3;
 	padding-top:5px;
 	margin: 5px 0;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 0.785em;
+	font-weight:600;
+	color:#965F76;
 }
 label{
 	display:block;
-	margin-bottom:5px;
+	margin-bottom:10px;
 }
 input, textarea{
 	width:100%;
-	margin-bottom:5px;
+	margin: 0;
 	padding:5px;
-	border: 2px solid #7EBEA3;
-	color:#7EBEA3;
+	border: 2px solid #69A089;
+	color:#69A089;
 }
-input[type="radio"]{
+input[type="radio"],
+input[type="checkbox"]{
 	width: auto;
 }
 fieldset{
