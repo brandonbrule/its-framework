@@ -17,9 +17,11 @@ var Buttons = (function() {
   };
   
   var init = function(data) {
-    if (data.element_type === 'BUTTON' && data.changed === true){
-      resetActive(data.control);
-      setActive(data.element);
+    if (data.control){
+      if (data.element_type === 'BUTTON' && data.changed === true){
+        resetActive(data.control);
+        setActive(data.element);
+      }
     }
   };
 

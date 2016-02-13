@@ -24,7 +24,7 @@ var Dispatch = (function() {
     if (e.target.hasAttribute('its-control')) {
       data.control = e.target.getAttribute('its-control');
     } else {
-      data.control = false;
+      data.control = null;
     }
 
     // If it's a view
