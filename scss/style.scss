@@ -6,24 +6,6 @@ html {
   box-sizing: inherit;
 }
 
-body {
-	font-family: arial;
-}
-pre{
-}
-.active{
-	background:#D2185C;
-	color:#fff;
-	border: 1px solid #D2185C;
-}
-
-input, textarea{
-	width:100%;
-}
-
-
-body{ background: black; color: #fff; }
-
 // -- Clearfix -- //
 // @extend .clearfix
 .clearfix {
@@ -33,8 +15,6 @@ body{ background: black; color: #fff; }
     clear: both;
   }
 }
-
-
 
 // -- Equal Spaced Columns -- //
 // Number of Columns - First Column
@@ -79,17 +59,43 @@ body{ background: black; color: #fff; }
 
 .col-container{
   @extend .clearfix;
+  max-width:760px;
+  margin: 0 auto;
 }
 
 // Dark Pink
-$color-1: #FD0560;
-$color-2: #D2185C;
-$color-3: #7C3E55;
-$color-4: #A72B59;
+$color-1: #A9CBA6;
+$color-2: #7EBEA3;
 
-$colors: $color-1, $color-2, $color-3, $color-4;
-body{
-  background: #111;
+
+$colors: $color-1, $color-2;
+
+
+
+body {
+	font-family: arial;
+	background: #EDEDF2; 
+	color: #356157;
+}
+h1{
+	color:#53A08E;
+	text-align: center;
+	font-weight: normal;
+}
+pre{
+	border-top:1px dotted #fff;
+	padding-top:5px;
+	margin: 5px 0;
+}
+label{
+	display:block;
+	margin-bottom:5px;
+}
+input, textarea{
+	width:100%;
+	margin-bottom:5px;
+	padding:5px;
+	border: none;
 }
 fieldset{
 	border: none;
@@ -99,15 +105,23 @@ fieldset{
 
 .view-group{
 	@include equalSpaced(3, 1%, 100%);
-	padding: 10px;
-	height: 125px;
+	padding: 15px;
+	height: 145px;
 }
+
+.active{
+	background:#D2185C;
+	color:#fff;
+	border: 1px solid #D2185C;
+}
+
+
 
 $n : 20;
 .view-group{
   @for $i from 1 through $n {
     &:nth-child(#{$i}) {
-       background: nth($colors, $i%4+1);
+       background: nth($colors, $i%2+1);
     }
   }
 }

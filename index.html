@@ -8,6 +8,7 @@
 
   <body>
 
+    <h1>its-framework</h1>
     <div class="col-container">
 
       <div class="view-group">
@@ -55,13 +56,15 @@
 
       <div class="view-group">
         <fieldset>
+          <label for="msg">Button Grouping</label>
           <button its-control="button" value="01">01</button>
           <button its-control="button" value="02">02</button>
-          <button its-control="button" value="03">03</button> |
-          <button its-control="button-2" value="99">99</button>
-          <button its-control="button-2" value="100">100</button>
+          <button its-control="button" value="03">03</button>
         </fieldset>
         <pre its-view="button"></pre>
+
+        <button its-control="button-2" value="99">99</button>
+        <button its-control="button-2" value="100">100</button>
         <pre its-view="button-2"></pre>
       </div>
 
