@@ -3,7 +3,7 @@ var Export = (function() {
   var exportdata = {};
 
   var update = function(){
-    var str = JSON.stringify(exportdata);
+    var str = JSON.stringify(exportdata, null, 4);
     var el = document.querySelector('[its-view="export"]');
     el.innerHTML=str;
   }
