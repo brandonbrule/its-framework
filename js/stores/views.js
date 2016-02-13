@@ -38,7 +38,7 @@ var Views = (function() {
 
   var update = function(data, type) {
     var indexes = returnIndexes(cache[type].type, data.control);
-
+its.clearAll();
     [].forEach.call(indexes, function(index){
       
       // Update Values for Controls
@@ -47,13 +47,14 @@ var Views = (function() {
         // Inputs, Text Areas, Everything But Buttons So Far
         if (cache[type].element[index].nodeName !== 'BUTTON'){
 
-
           if (cache[type].element[index].max < data.value && !cache[type].element[index].max && cache[type].element[index].getAttribute('type') !== 'text'){
             cache[type].element[index].max = data.value;
           }
 
-
-          cache[type].element[index].value = data.value;
+          if ( cache[type].element[index].getAttribute('type') !== 'radio' ){
+            cache[type].element[index].value = data.value;
+          }
+          
         }
 
 

@@ -91,6 +91,9 @@ input, textarea{
 	border: 2px solid #7EBEA3;
 	color:#7EBEA3;
 }
+input[type="radio"]{
+	width: auto;
+}
 fieldset{
 	border: none;
 	padding: 0;
@@ -117,6 +120,11 @@ fieldset{
 .col-2{
 	@include equalSpaced(2, 1%, 100%);
 }
+
+.col-3{
+	@include equalSpaced(3, 1%, 100%);
+}
+
 
 .active{
 	background:#7EBEA3;
