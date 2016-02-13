@@ -16,7 +16,7 @@ var Dispatch = (function() {
 
     data.event_type = e.type;
     data.element = e.target;
-    data.type = e.target.nodeName;
+    data.element_type = e.target.nodeName;
 
     // Value
     if (e.target.value) {
