@@ -46,11 +46,13 @@ var Views = (function() {
 
         // Inputs, Text Areas, Everything But Buttons So Far
         if (cache[type].element[index].nodeName !== 'BUTTON'){
-          its.clearAll();
-          if (cache[type].element[index].max < data.value && !cache[type].element[index].max){
-            its.a(cache[type].element[index].max);
+
+
+          if (cache[type].element[index].max < data.value && !cache[type].element[index].max && cache[type].element[index].getAttribute('type') !== 'text'){
             cache[type].element[index].max = data.value;
           }
+
+
           cache[type].element[index].value = data.value;
         }
 

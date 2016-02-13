@@ -7,60 +7,65 @@
   </head>
 
   <body>
+    
+    <div class="col-container">
 
-    <fieldset>
-      <label for="msg">Single Input</label>
-      <input its-control="input1" value="">
-      <label>Text Area</label>
-      <textarea its-control="textarea1"></textarea>
-    </fieldset>
+      <div class="view-group">
+        <fieldset>
+          <label for="msg">Single Input</label>
+          <input its-control="input1" value="" type="text">
+        </fieldset>
+        <pre its-view="input1"></pre>
+      </div>
 
-    <fieldset>
-      <label for="msg">Multiple Views</label>
-      <input its-control="input2" value="" >
-    </fieldset>
+      <div class="view-group">
+        <fieldset>
+          <label>Text Area</label>
+          <textarea its-control="textarea1"></textarea>
+        </fieldset>
+        <pre its-view="textarea1"></pre>
+      </div>
 
-    <fieldset>
-      <label for="msg">Shared Inputs</label>
-      <input its-control="input3" value="" >
-      <input its-control="input3" value="" >
-    </fieldset>
+      <div class="view-group">
+        <fieldset>
+          <label for="msg">Multiple Views</label>
+          <input its-control="input2" value="" type="text">
+        </fieldset>
+        <pre its-view="input2"></pre>
+        <pre its-view="input2"></pre>
+      </div>
 
-    <fieldset>
-      <label for="msg">Shared Types</label>
-      <input its-control="shared-numbers" type="number" max="200" value="" >
-      <input its-control="shared-numbers" type="range" max="200" value="" >
-    </fieldset>
+      <div class="view-group">
+        <fieldset>
+          <label for="msg">Shared Inputs</label>
+          <input its-control="input3" value="" type="text">
+          <input its-control="input3" value="" type="text">
+        </fieldset>
+        <pre its-view="input3"></pre>
+      </div>
 
-    <fieldset>
-      <button its-control="button" value="01">01</button>
-      <button its-control="button" value="02">02</button>
-      <button its-control="button" value="03">03</button> |
-      <button its-control="button-2" value="99">99</button>
-      <button its-control="button-2" value="100">100</button>
-    </fieldset>
+      <div class="view-group">
+        <fieldset>
+          <label for="msg">Shared Types</label>
+          <input its-control="shared-numbers" type="number" max="200" value="" >
+          <input its-control="shared-numbers" type="range" max="200" value="" >
+        </fieldset>
+        <pre its-view="shared-numbers"></pre>
+      </div>
 
-    <p>// its-view</p>
+      <div class="view-group">
+        <fieldset>
+          <button its-control="button" value="01">01</button>
+          <button its-control="button" value="02">02</button>
+          <button its-control="button" value="03">03</button> |
+          <button its-control="button-2" value="99">99</button>
+          <button its-control="button-2" value="100">100</button>
+        </fieldset>
+        <pre its-view="button"></pre>
+        <pre its-view="button-2"></pre>
+      </div>
 
-    Single Input
-    <pre its-view="input1"></pre>
-
-    textarea
-    <pre its-view="textarea1"></pre>
-
-    Multiple Views
-    <pre its-view="input2"></pre>
-    <pre its-view="input2"></pre> 
-
-    Shared Inputs
-    <pre its-view="input3"></pre>
-
-    Shared Types
-    <pre its-view="shared-numbers"></pre>
-
-    Buttons
-    <pre its-view="button"></pre>
-    <pre its-view="button-2"></pre>
+    </div>
 
 
     <script src='http://brandonbrule.github.io/itsa/js/itsa.js'></script>

@@ -1,8 +1,95 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
 body {
-	font-family: arial;
-}
-pre{
-}
-.active{
-	background:red;
-}
+  font-family: arial; }
+
+.active {
+  background: #D2185C;
+  color: #fff;
+  border: 1px solid #D2185C; }
+
+input, textarea {
+  width: 100%; }
+
+body {
+  background: black;
+  color: #fff; }
+
+.clearfix:after, .col-container:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+body {
+  background: #111; }
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0; }
+
+.view-group {
+  width: 32.66667%;
+  margin-left: 1%;
+  margin-top: 1%;
+  float: left;
+  padding: 10px;
+  height: 125px; }
+  .view-group:first-child {
+    margin-left: 0; }
+  .view-group:nth-child(3n + 1) {
+    margin-left: 0; }
+  .view-group:nth-child(1) {
+    margin-top: 0; }
+  .view-group:nth-child(2) {
+    margin-top: 0; }
+  .view-group:nth-child(3) {
+    margin-top: 0; }
+
+.view-group:nth-child(1) {
+  background: #D2185C; }
+.view-group:nth-child(2) {
+  background: #7C3E55; }
+.view-group:nth-child(3) {
+  background: #A72B59; }
+.view-group:nth-child(4) {
+  background: #FD0560; }
+.view-group:nth-child(5) {
+  background: #D2185C; }
+.view-group:nth-child(6) {
+  background: #7C3E55; }
+.view-group:nth-child(7) {
+  background: #A72B59; }
+.view-group:nth-child(8) {
+  background: #FD0560; }
+.view-group:nth-child(9) {
+  background: #D2185C; }
+.view-group:nth-child(10) {
+  background: #7C3E55; }
+.view-group:nth-child(11) {
+  background: #A72B59; }
+.view-group:nth-child(12) {
+  background: #FD0560; }
+.view-group:nth-child(13) {
+  background: #D2185C; }
+.view-group:nth-child(14) {
+  background: #7C3E55; }
+.view-group:nth-child(15) {
+  background: #A72B59; }
+.view-group:nth-child(16) {
+  background: #FD0560; }
+.view-group:nth-child(17) {
+  background: #D2185C; }
+.view-group:nth-child(18) {
+  background: #7C3E55; }
+.view-group:nth-child(19) {
+  background: #A72B59; }
+.view-group:nth-child(20) {
+  background: #FD0560; }
+
+/*# sourceMappingURL=style.css.map */
