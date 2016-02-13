@@ -2,7 +2,7 @@ var Dispatch = (function() {
   var event;
   var data = {
     changed: null,
-    event: null,
+    event_type: null,
     element: null,
     type: null,
     value: null,
@@ -14,7 +14,7 @@ var Dispatch = (function() {
   // new message: raise newMessage event
   var Publish = function(e) {
 
-    data.event = e.type;
+    data.event_type = e.type;
     data.element = e.target;
     data.type = e.target.nodeName;
 
@@ -69,7 +69,7 @@ var Dispatch = (function() {
       })
     }
 
-    Store.init(data);
+    Stores.init(data);
   };
 
   var init = function(e) {
@@ -81,7 +81,7 @@ var Dispatch = (function() {
 })();
 
 // Functions
-var Store = (function() {
+var Views = (function() {
   var cache = {
     views: {
       type: [],
@@ -145,7 +145,28 @@ var Store = (function() {
 
 })();
 
-Store.cacheViews();
+Views.cacheViews();
+
+
+
+
+
+// Functions
+var Stores = (function() {
+  
+  var init = function(data) {
+    Views.init(data);
+  };
+
+  return {
+    init: init
+  };
+
+})();
+
+
+
+
 
 // Actions
 
