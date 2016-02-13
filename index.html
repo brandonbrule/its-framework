@@ -10,20 +10,26 @@
 
     <fieldset>
       <label for="msg">Single Input</label>
-      <input its-control="input1" value="" />
+      <input its-control="input1" value="">
       <label>Text Area</label>
       <textarea its-control="textarea1"></textarea>
     </fieldset>
 
     <fieldset>
       <label for="msg">Multiple Views</label>
-      <input its-control="input2" value="" />
+      <input its-control="input2" value="" >
     </fieldset>
 
     <fieldset>
       <label for="msg">Shared Inputs</label>
-      <input its-control="input3" value="" />
-      <input its-control="input3" value="" />
+      <input its-control="input3" value="" >
+      <input its-control="input3" value="" >
+    </fieldset>
+
+    <fieldset>
+      <label for="msg">Shared Types</label>
+      <input its-control="shared-numbers" type="number" max="200" value="" >
+      <input its-control="shared-numbers" type="range" max="200" value="" >
     </fieldset>
 
     <fieldset>
@@ -47,11 +53,15 @@
     <pre its-view="input2"></pre> 
 
     Shared Inputs
-    <pre its-view="input3"></pre> 
+    <pre its-view="input3"></pre>
+
+    Shared Types
+    <pre its-view="shared-numbers"></pre>
 
     Buttons
     <pre its-view="button"></pre>
     <pre its-view="button-2"></pre>
+
 
     <script src='http://brandonbrule.github.io/itsa/js/itsa.js'></script>
     <script src="js/actions.js"></script>

@@ -39,10 +39,23 @@ var Views = (function() {
   var update = function(data, type) {
     var indexes = returnIndexes(cache[type].type, data.control);
     [].forEach.call(indexes, function(index){
+
+      
+      // Update Values for Controls
       if (type === 'controls'){
+
+        // Inputs, Text Areas, Everything But Buttons So Far
         if (cache[type].element[index].nodeName !== 'BUTTON'){
+          its.clearAll();
+          if (cache[type].element[index].max < data.value && !cache[type].element[index].max){
+            its.a(cache[type].element[index].max);
+            cache[type].element[index].max = data.value;
+          }
           cache[type].element[index].value = data.value;
         }
+
+
+      // Everything that isn't a control. AKA Views.
       } else {
         cache[type].element[index].innerHTML = data.value;
       }
