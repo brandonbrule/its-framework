@@ -42,7 +42,7 @@ var Dispatch = (function() {
           if (e.target.checked){
             data.value = e.target.value;
           } else {
-            data.value = null;
+            data.value = '';
           }
         } else {
           data.value = e.target.value;
@@ -88,6 +88,8 @@ var Dispatch = (function() {
     // It's a submit button  
     } else {
       data.changed = false;
+      data.value = null;
+      data.innerHTML = null;
     }
 
     return data;

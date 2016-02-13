@@ -14,10 +14,19 @@ var Export = (function() {
       exportdata[data.control] = data.element.value;
     }
 
+    // If empty delete object property
     if (exportdata[data.control] === ''){
-      delete exportdata[data.control]
+      delete exportdata[data.control];
     }
 
+    // If checkbox and its unchecked delete property
+    if (data.type === 'checkbox'){
+      if (!data.element.checked){
+        delete exportdata[data.control]
+      }
+    }
+
+    // Update Display
     if(data.control === 'exportjson'){
       update();
     }
