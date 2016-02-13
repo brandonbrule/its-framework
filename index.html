@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>A Pen by  Brandon Brule</title>
+    
+    
+    
+    
+        <link rel="stylesheet" href="css/style.css">
+
+    
+    
+    
+  </head>
+
+  <body>
+
+    <fieldset>
+  <label for="msg">Single Input</label>
+  <input its-control="input1" value="" />
+</fieldset>
+<fieldset>
+  <label for="msg">Multiple Views</label>
+  <input its-control="input2" value="" />
+</fieldset>
+
+<fieldset>
+  <label for="msg">Shared Inputs</label>
+  <input its-control="input3" value="" />
+  <input its-control="input3" value="" />
+</fieldset>
+
+<fieldset>
+  <button its-control="button" value="01">01</button>
+  <button its-control="button" value="02">02</button>
+  <button its-control="button" value="03">03</button>
+</fieldset>
+
+<p>// its-view</p>
+
+Single Input
+<pre its-view="input1"></pre> 
+
+Multiple Views
+<pre its-view="input2"></pre>
+<pre its-view="input2"></pre> 
+
+Shared Inputs
+<pre its-view="input3"></pre> 
+
+Buttons
+<pre its-view="button"></pre>
+    <script src='http://brandonbrule.github.io/itsa/js/itsa.js'></script>
+
+        <script src="js/index.js"></script>
+
+    
+    
+    
+  </body>
+</html>
