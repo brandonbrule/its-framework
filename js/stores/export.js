@@ -19,6 +19,12 @@ var Export = (function() {
       delete exportdata[data.control];
     }
 
+    if (data.element_type === 'BUTTON'){
+      if (data.changed === false){
+        delete exportdata[data.control];
+      }
+    }
+
     // If checkbox and its unchecked delete property
     if (data.type === 'checkbox'){
       if (!data.element.checked){

@@ -145,10 +145,9 @@ fieldset {
   .view-dynamic .dynamic-row:nth-child(3) {
     margin-top: 0; }
 
-.active {
+[its-active="true"] {
   background: #7EBEA3;
-  color: #fff;
-  border: 1px solid #7EBEA3; }
+  color: #fff; }
 
 .its-a-message {
   background: #69A089 !important;
