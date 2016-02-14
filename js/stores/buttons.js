@@ -10,22 +10,22 @@ var Buttons = (function() {
     });
   };
 
-  var setActive = function(element){
-    if(element.hasAttribute('its-active')){
-      element.removeAttribute('its-active');
+  var setActive = function(data){
+    if(data.changed){
+      data.element.setAttribute('its-active', true);
     } else {
-      element.setAttribute('its-active', true);
+      data.element.removeAttribute('its-active');
     }
   };
   
   var init = function(data) {
     if (data.control){
       if (data.element_type === 'BUTTON'){
-        if(data.element.hasAttribute('its-active')){
-          setActive(data.element);
-        } else {
+        if(data.changed === true){
           resetActive(data.control);
-          setActive(data.element);
+          setActive(data);
+        } else {
+          setActive(data);
         }
       }
     }
