@@ -72,6 +72,9 @@ var Dispatch = (function() {
 
       if ( (data.value === data.history[0].value || data.innerHTML === data.history[0].innerHTML ) && data.history.length <= 2) {
         data.changed = false;
+        if (data.history.length === 1){
+          data.changed = true;
+        }
       } else {
         data.changed = true;
         data.history.unshift({
