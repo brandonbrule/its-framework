@@ -1,6 +1,5 @@
 var Dispatch = (function() {
   var event;
-  
   var data = {
     changed: null,
     event_type: null,
@@ -10,49 +9,45 @@ var Dispatch = (function() {
     control: null,
     history: []
   };
+  var last_control;
 
-  var Publish = function(e) {
-    //its.clearAll();
-    data.event_type = e.type;
-    data.element = e.target;
-    data.element_type = e.target.nodeName;
-    data.type = e.target.getAttribute('type');
-    
-
-    // If it's a control
-    if (e.target.hasAttribute('its-control')) {
-      data.control = e.target.getAttribute('its-control');
+  // If it's a control
+  var controlCheck = function(){
+    if (data.element.hasAttribute('its-control')) {
+      data.control = data.element.getAttribute('its-control');
     } else {
       data.control = null;
     }
+  };
 
-    // If It's an input value but not submit.
-    // Buttons with values also work here
-    if ( data.type !== 'submit') {
-
-      // Value
-      if (e.target.value) {
+  var setValue = function(){
+    // Value
+      if (data.element.value) {
         if (data.type === 'checkbox') {
-          if (e.target.checked){
-            data.value = e.target.value;
+          if (data.element.checked){
+            data.value = data.element.value;
           } else {
             data.value = '';
           }
         } else {
-          data.value = e.target.value;
+          data.value = data.element.value;
         }
       } else {
         data.value = null;
       }
+  };
 
+  var setInnerHTML = function(){
       // If it's innerHTML Like textarea
-      if (e.target.innerHTML) {
-        data.innerHTML = e.target.innerHTML;
+      if (data.element.innerHTML) {
+        data.innerHTML = data.element.innerHTML;
       } else {
         data.innerHTML = null;
       }
+  };
 
 
+  var setHistory = function(){
       // History
       // Basically it creates the last value or innerHTML of an input of button
       // By comparing the current value with the history we can determine if there's been a change.
@@ -60,8 +55,9 @@ var Dispatch = (function() {
       // Create First History Item - First Action
       if (data.history.length === 0) {
         data.history.push({
-          value: e.target.value,
-          innerHTML: e.target.innerHTML
+          value: data.element.value,
+          innerHTML: data.element.innerHTML,
+          control: data.control
         });
         data.changed = true;
 
@@ -82,6 +78,7 @@ var Dispatch = (function() {
           if (data.element_type === 'BUTTON'){
             if (data.changed){
               data.changed = false;
+              data.value = '';
             } else {
               data.changed = true;
             }
@@ -100,29 +97,53 @@ var Dispatch = (function() {
           data.changed = true;
           data.history.unshift({
             value: data.value,
-            innerHTML: e.target.innerHTML
+            innerHTML: data.element.innerHTML,
+            control: data.control
           });
         }
 
       }
+  };
 
-      // Checkboxes and radio buttons technically always change.
-      if (data.type === 'checkbox' || data.type === 'radio'){
+
+  var Publish = function(e) {
+    its.clearAll();
+
+    data.event_type = e.type;
+    data.element = e.target;
+    data.element_type = e.target.nodeName;
+    data.type = e.target.getAttribute('type');
+    
+    controlCheck();
+
+    // If It's an input value but not submit.
+    // Buttons with values also work here
+
+    if (data.control){
+      if ( data.type !== 'submit') {
+
+        setValue();
+        setInnerHTML();
+        setHistory();
+
+        // Checkboxes and radio buttons technically always change.
+        if (data.type === 'checkbox' || data.type === 'radio'){
+          data.changed = true;
+        }
+
+
+      // It's a submit button
+      // its-framework leaves submit buttons alone
+      // The Dispatch pulse will still give you what you need
+      // To set up your own funtions.
+      } else {
         data.changed = true;
+        data.value = data.element.value;
+        data.innerHTML = null;
       }
-
-
-    // It's a submit button
-    // its-framework leaves submit buttons alone
-    // The Dispatch pulse will still give you what you need
-    // To set up your own funtions.
-    } else {
-      data.changed = false;
-      data.value = data.element.value;
-      data.innerHTML = null;
     }
 
-        
+    its.a(data);        
     return data;
     
   };

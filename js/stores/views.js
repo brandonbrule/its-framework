@@ -74,6 +74,10 @@ var Views = (function() {
       update(data, 'views');
       update(data, 'controls');
     }
+
+    if (data.element_type === 'BUTTON'){
+      update(data, 'views');
+    }
   };
 
   return {

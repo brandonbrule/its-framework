@@ -2,7 +2,7 @@
 var Store = (function() {
   
   var init = function(data) {
-    Troubleshoot.control(data);
+    // Troubleshoot.control(data);
     Views.init(data);
     Buttons.init(data);
     Export.init(data);
