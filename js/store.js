@@ -2,11 +2,28 @@
 var Store = (function() {
   
   var init = function(data) {
-    Troubleshoot.control(data);
+    
+    // Update View Cache
     Views.init(data);
+
+    // Button Active
+    // Simple module that styles buttons
     Buttons.init(data);
+
+    // Dynamically Added
+    // Dynamic tied to Views will need to update view cache
     Dynamic.init(data);
-    Export.init(State.init(data));
+
+
+    // State Module
+    // State of all its-control
+    // State.init(data)
+
+    // Export Module
+    // Mostly for Presenting State in Pre Tags
+    // But serves as an example of how to extend modules
+    Export.init(State.init(data), document.querySelector('[its-view="state"]'));
+    Export.init(data, document.querySelector('[its-view="event"]'));
   };
 
   return {
