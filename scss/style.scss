@@ -58,9 +58,12 @@ html {
 
 
 .col-container{
-  @extend .clearfix;
-  max-width:920px;
-  margin: 1% auto;
+	@extend .clearfix;
+	max-width:920px;
+	margin: 1% auto;
+	@media screen and (min-width: 920px){
+		margin: 0.5% auto;
+	}
 }
 
 

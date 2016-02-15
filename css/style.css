@@ -13,6 +13,9 @@ html {
 .col-container {
   max-width: 920px;
   margin: 1% auto; }
+  @media screen and (min-width: 920px) {
+    .col-container {
+      margin: 0.5% auto; } }
 
 body {
   font-family: arial;
