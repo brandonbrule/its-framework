@@ -6,10 +6,9 @@ var Dispatch = (function() {
     element: null,
     type: null,
     value: null,
-    control: null,
-    history: []
+    control: null
   };
-  var last_control;
+  var control_history = {};
 
   // If it's a control
   var controlCheck = function(){
@@ -46,109 +45,68 @@ var Dispatch = (function() {
       }
   };
 
+  var controlHistory = function(){
 
-  var setHistory = function(){
-      // History
-      // Basically it creates the last value or innerHTML of an input of button
-      // By comparing the current value with the history we can determine if there's been a change.
+    if (!control_history[data.control]){
+      control_history[data.control] = [{
+        value: data.value,
+        innerHTML: data.innerHTML
+      }];
+      data.changed = true;
+      return;
+    }
 
-      // Create First History Item - First Action
-      if (data.history.length === 0) {
-        data.history.push({
-          value: data.element.value,
-          innerHTML: data.element.innerHTML,
-          control: data.control
-        });
-        data.changed = true;
 
-      // Now That There is History
-      } else {
-        
-        // Limit history to 1 extra item for comparison.
-        if (data.history.length === 2) {
-          data.history.pop();
-        }
+    if(control_history[data.control].length === 1){
+      if (control_history[data.control][0].value === data.value){
 
-        // Does the value or innerHTML match the last history? 
-        //If it does then it hasn't changed.
-        if ( (data.value === data.history[0].value || data.innerHTML === data.history[0].innerHTML )) {
-          
-          // Buttons are a little different
-          // We detect if its been changed even if the value is the same
           if (data.element_type === 'BUTTON'){
-            if (data.changed){
-              data.changed = false;
-              data.value = '';
-            } else {
-              data.changed = true;
-            }
-
-          // Everything else the value is the same
-          // So it hasn't changed
+            data.changed = false;
+            data.value = '';
+            control_history[data.control][0].value = '';
           }else{
             data.changed = false;
           }
 
-
-        // The Value has been Changed from History
-        // If the value or innerHTML is different than the last history it's been changed
-        // and bump in the new history item
-        } else {
-          data.changed = true;
-          data.history.unshift({
-            value: data.value,
-            innerHTML: data.element.innerHTML,
-            control: data.control
-          });
-        }
-
+      } else {
+        data.changed = true;
+        control_history[data.control][0].value = data.value;
+        control_history[data.control][0].innerHTML = data.innerHTML;
       }
+    }
+
   };
 
 
   var Publish = function(e) {
-    its.clearAll();
-
     data.event_type = e.type;
     data.element = e.target;
     data.element_type = e.target.nodeName;
     data.type = e.target.getAttribute('type');
     
-    controlCheck();
-
-    // If It's an input value but not submit.
-    // Buttons with values also work here
+    
+    controlCheck(e);
 
     if (data.control){
-      if ( data.type !== 'submit') {
-
         setValue();
         setInnerHTML();
-        setHistory();
-
-        // Checkboxes and radio buttons technically always change.
-        if (data.type === 'checkbox' || data.type === 'radio'){
+        controlHistory();
+        if ( data.type === 'checkbox' || data.type === 'radio' || data.type === 'submit' ){
           data.changed = true;
         }
-
-
-      // It's a submit button
-      // its-framework leaves submit buttons alone
-      // The Dispatch pulse will still give you what you need
-      // To set up your own funtions.
-      } else {
-        data.changed = true;
-        data.value = data.element.value;
-        data.innerHTML = null;
-      }
+    } else {
+      data.value = null;
+      data.innerHTML = null;
     }
 
-    its.a(data);        
+       
+    
     return data;
     
   };
 
   var init = function(e) {
+      //its.clearAll();
       var data = Publish(e);
       Store.init(data);
   };
