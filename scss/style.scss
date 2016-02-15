@@ -147,7 +147,10 @@ fieldset{
 	color:#fff;
 }
 
-#its-wrapper{font-size:12px!important;}
+#its-wrapper{font-size:14px!important;}
+#its-wrapper ul{
+	margin: 0!important;
+}
 #its-wrapper li strong{
 	font-size:12px!important;
 }
@@ -165,4 +168,12 @@ fieldset{
 }
 .its-type{
 	color:#69A089!important;
+}
+
+[its-control="wut"],
+[its-view="wut"]{
+	float:right;
+}
+[its-view="wut"]{
+	margin-right:20px;
 }
