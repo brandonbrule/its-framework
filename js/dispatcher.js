@@ -10,7 +10,6 @@ var Dispatch = (function() {
   };
   var control_history = {};
 
-  // If it's a control
   var controlCheck = function(){
     if (data.element.hasAttribute('its-control')) {
       data.control = data.element.getAttribute('its-control');
@@ -20,7 +19,6 @@ var Dispatch = (function() {
   };
 
   var setValue = function(){
-    // Value
       if (data.element.value) {
         if (data.type === 'checkbox') {
           if (data.element.checked){
@@ -37,7 +35,6 @@ var Dispatch = (function() {
   };
 
   var setInnerHTML = function(){
-      // If it's innerHTML Like textarea
       if (data.element.innerHTML) {
         data.innerHTML = data.element.innerHTML;
       } else {
@@ -55,7 +52,6 @@ var Dispatch = (function() {
       data.changed = true;
       return;
     }
-
 
     if(control_history[data.control].length === 1){
       if (control_history[data.control][0].value === data.value){
@@ -83,10 +79,7 @@ var Dispatch = (function() {
     data.element = e.target;
     data.element_type = e.target.nodeName;
     data.type = e.target.getAttribute('type');
-    
-    
     controlCheck(e);
-
     if (data.control){
         setValue();
         setInnerHTML();
@@ -99,14 +92,11 @@ var Dispatch = (function() {
       data.innerHTML = null;
     }
 
-       
-    
     return data;
     
   };
 
   var init = function(e) {
-      //its.clearAll();
       var data = Publish(e);
       Store.init(data);
   };
