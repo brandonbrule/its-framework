@@ -15,17 +15,19 @@ html {
   margin: 1% auto; }
   @media screen and (min-width: 920px) {
     .col-container {
-      margin: 0.5% auto; } }
+      margin: 1% auto; } }
 
 body {
   font-family: arial;
   background: url("data:image/svg+xml;utf8,<svg width='46' height='59' version='1.1' xmlns='http://www.w3.org/2000/svg' style=''><path d='M7 12 L1 12 L42 23 L6 3 L35 10 L29 14 L40 23 ' style='fill:#69A089; '></path></svg>") #A9CBA6;
   color: #69A089;
-  margin: 2%; }
+  margin: 0 2%; }
 
 h1 {
   color: #53A08E;
-  text-align: center;
+  font-size: 1.15em;
+  float: left;
+  margin: 0;
   font-weight: normal; }
 
 pre {
@@ -59,7 +61,7 @@ fieldset {
   padding: 0;
   margin: 0; }
 
-.view-group, .export-container {
+.view-group, .export-container, .header {
   box-shadow: 0px 2px 8px -1px #3E7568;
   padding: 15px;
   background: #fff; }
@@ -200,6 +202,8 @@ fieldset {
   float: right; }
 
 [its-view="wut"] {
+  font-size: 20px;
+  margin-top: 5px;
   margin-right: 20px; }
 
 /*# sourceMappingURL=style.css.map */
