@@ -5,8 +5,8 @@ var Store = (function() {
     Troubleshoot.control(data);
     Views.init(data);
     Buttons.init(data);
-    Export.init(data);
     Dynamic.init(data);
+    Export.init(State.init(data));
   };
 
   return {
