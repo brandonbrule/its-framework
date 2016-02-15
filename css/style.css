@@ -11,7 +11,7 @@ html {
   clear: both; }
 
 .col-container {
-  max-width: 760px;
+  max-width: 920px;
   margin: 1% auto; }
 
 body {
@@ -81,7 +81,7 @@ fieldset {
         margin-top: 0; }
       .view-group:nth-child(2) {
         margin-top: 0; } }
-  @media screen and (min-width: 760px) {
+  @media screen and (min-width: 760px) and (max-width: 919px) {
     .view-group {
       width: 32%;
       margin-left: 2%;
@@ -97,6 +97,25 @@ fieldset {
       .view-group:nth-child(2) {
         margin-top: 0; }
       .view-group:nth-child(3) {
+        margin-top: 0; } }
+  @media screen and (min-width: 920px) {
+    .view-group {
+      width: 24.25%;
+      margin-left: 1%;
+      margin-top: 1%;
+      float: left;
+      height: 125px; }
+      .view-group:first-child {
+        margin-left: 0; }
+      .view-group:nth-child(4n + 1) {
+        margin-left: 0; }
+      .view-group:nth-child(1) {
+        margin-top: 0; }
+      .view-group:nth-child(2) {
+        margin-top: 0; }
+      .view-group:nth-child(3) {
+        margin-top: 0; }
+      .view-group:nth-child(4) {
         margin-top: 0; } }
 
 .col-2 {
