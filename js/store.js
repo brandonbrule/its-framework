@@ -1,4 +1,7 @@
-// Functions
+// Store Rules
+// Every module must go through the store
+// Every module must be served the event date
+// Your module must decide what's important
 var Store = (function() {
   
   var init = function(data) {
