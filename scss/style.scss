@@ -75,7 +75,7 @@ body {
 }
 h1{
 	color:#53A08E;
-	font-size: 1.15em;
+	font-size: 1em;
 	float:left;
 	margin: 0;
 	font-weight: normal;
@@ -184,8 +184,11 @@ fieldset{
 [its-view="wut"]{
 	float:right;
 }
+[its-control="wut"]{
+	font-size:8px;
+}
 [its-view="wut"]{
-	font-size:20px;
+	font-size:12px;
 	margin-top:5px;
 	margin-right:20px;
 }
