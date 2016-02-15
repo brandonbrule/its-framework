@@ -122,11 +122,14 @@ var Dispatch = (function() {
   // It readys all this data to return
   // for the stores.
   var Publish = function(e) {
-    // Quick Items
+
+    // Every Event Data Object Gets These
     data.event_type = e.type;
     data.element = e.target;
     data.element_type = e.target.nodeName;
     data.type = e.target.getAttribute('type');
+    data.value = null;
+    data.innerHTML = null;
 
     // If the element is a control.
     controlCheck(e);
@@ -137,12 +140,6 @@ var Dispatch = (function() {
         if ( data.type === 'checkbox' || data.type === 'radio' || data.type === 'submit' ){
           data.changed = true;
         }
-
-    // The element any element not associated
-    // with its-framework
-    } else {
-      data.value = null;
-      data.innerHTML = null;
     }
 
     return data;
