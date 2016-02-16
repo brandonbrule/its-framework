@@ -4,7 +4,7 @@
 // It Prints out the Optional State Module and Event Chain 
 var Export = (function() {
 
-  var last_control=[{control: null, event_type: null}];
+  var last_control=[{control: null, event_type: null, value: null}];
 
   // For Demo
   // Shows Optional State Module
@@ -52,7 +52,8 @@ var Export = (function() {
       last_control.unshift( 
         { 
           control: control, 
-          event_type: event_type
+          event_type: event_type,
+          value: data.value
         }
       );
 
@@ -77,7 +78,11 @@ var Export = (function() {
         if (data.event_type === last_control[1].event_type){
           element.innerHTML = '';
         }
-        // data.changed = true;
+
+        if (data.value !== last_control[1].value){
+          element.innerHTML = '';
+        }
+
         pre.innerHTML=JSON.stringify(data, null, 4);
         //element.insertBefore(pre, element.firstChild);
         element.appendChild(pre);

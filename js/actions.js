@@ -5,7 +5,7 @@
 // Element specific event listeners should be contained in own module.
 
 // KeyUp Event
-document.addEventListener("keydown", function(e) {
+document.addEventListener("keyup", function(e) {
 	// Tab shift Tab doesn't trigger change (accessibility)
 	// Ha, interesting, Spacebar on button registers as click
 	// So it sends click and keypress with just keypress - only on buttons.

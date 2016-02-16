@@ -110,7 +110,7 @@ var Dispatch = (function() {
 
           // Submit and radio buttons always trigger change
           // Best way to leave them alone.
-          if ( data.type === 'submit' || data.type === 'radio'){
+          if ( data.type === 'submit'){
             data.changed = true;
           }
 
