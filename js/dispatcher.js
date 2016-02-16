@@ -126,6 +126,16 @@ var Dispatch = (function() {
 
   };
 
+  var keyPress = function(e){
+    if (e.keyCode){
+      data.key = e.keyCode;
+    } else {
+      if (data.key){
+        delete data.key;
+      }
+    }
+  };
+
 
   // Publish assembles its-framework events
   // Deteremining if values have changed
@@ -141,6 +151,9 @@ var Dispatch = (function() {
     data.value = null;
     data.innerHTML = null;
 
+    // keyCode
+    keyPress(e);
+
     // If the element is a control.
     controlCheck(e);
     if (data.control){
@@ -150,6 +163,7 @@ var Dispatch = (function() {
     } else {
       data.changed = null;
     }
+
 
     return data;
     

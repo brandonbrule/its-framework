@@ -20,7 +20,7 @@ var Export = (function() {
   // Shows Same Event Order
   var view = function(data, element){
     if (element.getAttribute('its-view') === 'event'){
-
+      var pre = document.createElement('pre');
       var event_type;
       var control;
 
@@ -32,9 +32,7 @@ var Export = (function() {
         data.element = 'e.target';
       }
 
-      var str = JSON.stringify(data, null, 4);
-      var pre = document.createElement('pre');
-          pre.innerHTML=str;
+      
 
       // If it's an event remember what type it was
       if(data.event_type){
@@ -79,12 +77,14 @@ var Export = (function() {
         if (data.event_type === last_control[1].event_type){
           element.innerHTML = '';
         }
-
+        // data.changed = true;
+        pre.innerHTML=JSON.stringify(data, null, 4);
         element.insertBefore(pre, element.firstChild);
 
       // If the controls are different all together
       // Clear Display and show new event
       } else {
+        pre.innerHTML=JSON.stringify(data, null, 4);
         element.innerHTML = '';
         element.insertBefore(pre, element.firstChild);
       }

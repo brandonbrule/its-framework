@@ -6,9 +6,14 @@ var Dynamic = (function() {
   var element = function(data) {
     if(data.control === 'new'){
       var view = data.element.parentNode.parentNode;
-      var div = document.createElement('div');
+      var div = document.createElement('textarea');
       div.setAttribute('class', 'dynamic-row');
-      div.innerHTML='<input type="text" its-control="dynamic">';
+      div.setAttribute('its-control', 'dynamic');
+      
+      if (document.querySelector('[its-control="dynamic"]')){
+        div.value = document.querySelector('[its-control="dynamic"]').value;
+      }
+      
       view.appendChild(div);
       Views.cacheViews();
     }
