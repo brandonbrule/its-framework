@@ -147,9 +147,14 @@ var Dispatch = (function() {
     data.event_type = e.type;
     data.element = e.target;
     data.element_type = e.target.nodeName;
-    data.type = e.target.getAttribute('type');
     data.value = null;
     data.innerHTML = null;
+
+    if (e.target.getAttribute('type'){
+      data.type = e.target.getAttribute('type');
+    } else {
+      data.type = null;
+    }
 
     // keyCode
     keyPress(e);
