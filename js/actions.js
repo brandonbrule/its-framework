@@ -8,7 +8,7 @@ document.addEventListener("keyup", function(e) {
 	// Tab shift Tab doesn't trigger change (accessibility)
 	// Ha, interesting, Spacebar on button registers as click
 	// So it sends click and keypress with just keypress - only on buttons.
-	if (event.keyCode !== 9 && event.keyCode !== 16 && event.keyCode !== 32) {
+	if (event.keyCode !== 9 && event.keyCode !== 16 && event.keyCode !== 32 && event.keyCode !== 13) {
   		Dispatch.init(e);
 	}
 });
