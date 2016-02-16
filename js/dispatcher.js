@@ -150,7 +150,7 @@ var Dispatch = (function() {
     data.value = null;
     data.innerHTML = null;
 
-    if (e.target.getAttribute('type'){
+    if (e.target.getAttribute('type')){
       data.type = e.target.getAttribute('type');
     } else {
       data.type = null;
