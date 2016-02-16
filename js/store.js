@@ -5,6 +5,11 @@
 // Your module must decide what's important
 var Store = (function() {
   
+
+  // All Modules
+  // Are Purely Optional
+  // Add your own Functions
+  // Your funtion must determine if data matters
   var init = function(data) {
 
     // State Module
@@ -25,7 +30,6 @@ var Store = (function() {
     Buttons.init(data);
 
     
-
     // Export Module
     // Export.state is tied to the State Module
     // Prints State and Event Chain
