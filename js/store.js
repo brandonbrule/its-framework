@@ -1,7 +1,7 @@
 // -- Store -- //
 // Store Rules **
 // Every module must go through the store
-// Every module must be served the event date
+// Every module must be served the event data
 // Your module must decide what's important
 var Store = (function() {
   
@@ -15,14 +15,16 @@ var Store = (function() {
     // with coorisponding control value.
     Views.init(data);
 
+    // Dynamically Added
+    // Dynamic added Views will need to update view cache
+    // see Dynamic Module for Example - Views.cacheViews();
+    Dynamic.element(data);
+
     // Button Active
     // Simple module that styles buttons
     Buttons.init(data);
 
-    // Dynamically Added
-    // Dynamic added Views will need to update view cache
-    // see Dynamic Module for Example - Views.cacheViews();
-    Dynamic.init(data);
+    
 
     // Export Module
     // Export.state is tied to the State Module
