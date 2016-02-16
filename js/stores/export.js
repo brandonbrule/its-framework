@@ -24,23 +24,33 @@ var Export = (function() {
       var event_type;
       var control;
 
+      // For Demo Only
+      // Don't do this unless
+      // You want to lose reference to the element
+      // Let user know data.element is the same as e.target
+      if(data.element){
+        data.element = 'e.target';
+      }
+
+      var str = JSON.stringify(data, null, 4);
+      var pre = document.createElement('pre');
+          pre.innerHTML=str;
+
+      // If it's an event remember what type it was
       if(data.event_type){
         event_type = data.event_type;
       } else {
         event_type = null;
       }
 
+      // If its a its-control remember what control
       if(data.control){
         control = data.control;
       } else {
         control = null;
       }
-      // For Demo Display
-      // Let user know data.element is the same as e.target
-      if(data.element){
-        data.element = 'e.target';
-      }
 
+      // Most recent event and control Event
       last_control.unshift( 
         { 
           control: control, 
@@ -48,28 +58,32 @@ var Export = (function() {
         }
       );
 
+      // Remove after 2 events.
+      // So we can show
+      // Click && Change
       if (last_control.length === 3){
         last_control.pop();
       }
 
-
-      var str = JSON.stringify(data, null, 4);
-      var pre = document.createElement('pre');
-          pre.innerHTML=str;
-      
+      // Remove display element if theres more than 2
       if (element.children.length > 1){
         element.removeChild(element.childNodes[1]);
       }
       
-      
+      // If the this control and the last control are the same
+      // We want to show both events
       if (data.control === last_control[1].control){
+
+        // If the last event type is the same
+        // for example clicked twice without change
         if (data.event_type === last_control[1].event_type){
           element.innerHTML = '';
         }
+
         element.insertBefore(pre, element.firstChild);
 
       // If the controls are different all together
-      // Clear Display and 
+      // Clear Display and show new event
       } else {
         element.innerHTML = '';
         element.insertBefore(pre, element.firstChild);

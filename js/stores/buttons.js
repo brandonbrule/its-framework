@@ -5,6 +5,8 @@
 
 var Buttons = (function() {
 
+  // If it's a group of buttons
+  // Remove active class from all of them
   var resetActive = function(name){
     var grouping = document.querySelectorAll('[its-control="'+ name +'"]');
     [].forEach.call(grouping, function(element){
@@ -14,6 +16,9 @@ var Buttons = (function() {
     });
   };
 
+
+  // If Button has active state
+  // Remove or Add Active
   var setActive = function(data){
     if(data.changed){
       data.element.setAttribute('its-active', true);
@@ -22,6 +27,7 @@ var Buttons = (function() {
     }
   };
   
+  // If button and data.changed set active state
   var init = function(data) {
     if (data.control){
       if (data.element_type === 'BUTTON'){
