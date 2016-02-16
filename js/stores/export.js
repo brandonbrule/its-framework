@@ -29,7 +29,9 @@ var Export = (function() {
       // You want to lose reference to the element
       // Let user know data.element is the same as e.target
       if(data.element){
-        data.element = 'e.target';
+        if (data.element !== 'window'){
+          data.element = 'e.target';
+        }
       }
 
       

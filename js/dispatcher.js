@@ -144,11 +144,23 @@ var Dispatch = (function() {
   var Publish = function(e) {
 
     // Every Event Data Object Gets These
+    console.log(e);
     data.event_type = e.type;
+
+    if (e.currentTarget === window){
+      data.type = null;
+      data.changed = true;
+      data.control = null;
+      data.element = 'window';
+      data.element_type = null;
+      return data;
+    }
+    
     data.element = e.target;
     data.element_type = e.target.nodeName;
     data.value = null;
     data.innerHTML = null;
+
 
     if (e.target.getAttribute('type')){
       data.type = e.target.getAttribute('type');

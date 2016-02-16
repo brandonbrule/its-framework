@@ -23,3 +23,7 @@ document.addEventListener("change", function(e) {
 document.addEventListener('click', function(e) {
   Dispatch.init(e);
 });
+
+window.addEventListener("load", function(e){
+	Dispatch.init(e);
+});
