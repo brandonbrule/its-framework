@@ -67,8 +67,6 @@ var Export = (function() {
     viewEvents(data, element);
     stateEvent(data, element);
 
-    //its.a(last_control);
-
   };
 
   return {
