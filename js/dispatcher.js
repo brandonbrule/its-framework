@@ -82,14 +82,13 @@ var Dispatch = (function() {
       return;
     }
 
-
     // If a history item has been set.
     if(control_history[data.control].length === 1){
 
       // If the history item and element value match
       // It hasn't been changed
       if (control_history[data.control][0].value === data.value){
-
+          data.changed = false;
           // Unless it's a button.
           // Buttons can be same, or not even if values match.
           // This sets them as toggleable
@@ -97,12 +96,23 @@ var Dispatch = (function() {
             data.changed = false;
             data.value = '';
             control_history[data.control][0].value = '';
-
-          // Everything else hasn't been changed.
-          }else{
-            data.changed = false;
           }
 
+          // Buttons toggle data change
+          // Based off state
+          if (data.type === 'checkbox'){
+            if (data.element.checked){
+              data.changed = true;
+            }else{
+              data.changed = false;
+            }
+          }
+
+          // Submit and radio buttons always trigger change
+          // Best way to leave them alone.
+          if ( data.type === 'submit' || data.type === 'radio'){
+            data.changed = true;
+          }
 
       // If the history and element don't match
       // there's been a change and update the history with new value
@@ -137,9 +147,8 @@ var Dispatch = (function() {
         setValue();
         setInnerHTML();
         controlHistory();
-        if ( data.type === 'checkbox' || data.type === 'radio' || data.type === 'submit' ){
-          data.changed = true;
-        }
+    } else {
+      data.changed = null;
     }
 
     return data;
