@@ -143,10 +143,10 @@ var Dispatch = (function() {
   // for the stores.
   var Publish = function(e) {
 
-    // Every Event Data Object Gets These
-    console.log(e);
+    // Event Type
     data.event_type = e.type;
 
+    // If its a window event onload
     if (e.currentTarget === window){
       data.type = null;
       data.changed = true;
@@ -156,6 +156,7 @@ var Dispatch = (function() {
       return data;
     }
     
+    // If its any other event
     data.element = e.target;
     data.element_type = e.target.nodeName;
     data.value = null;
