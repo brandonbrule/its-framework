@@ -65,7 +65,7 @@ var Export = (function() {
 
       // Remove display element if theres more than 2
       if (element.children.length > 1){
-        element.removeChild(element.childNodes[1]);
+        element.removeChild(element.childNodes[0]);
       }
       
       // If the this control and the last control are the same
@@ -79,7 +79,8 @@ var Export = (function() {
         }
         // data.changed = true;
         pre.innerHTML=JSON.stringify(data, null, 4);
-        element.insertBefore(pre, element.firstChild);
+        //element.insertBefore(pre, element.firstChild);
+        element.appendChild(pre);
 
       // If the controls are different all together
       // Clear Display and show new event

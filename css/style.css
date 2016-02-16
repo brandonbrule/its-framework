@@ -5,7 +5,7 @@ html {
 *, *:before, *:after {
   box-sizing: inherit; }
 
-.clearfix:after, .col-container:after {
+.clearfix:after, .col-container:after, .pre:after {
   content: "";
   display: table;
   clear: both; }
@@ -172,6 +172,20 @@ fieldset {
 [its-active="true"] {
   background: #7EBEA3;
   color: #fff; }
+
+.pre pre {
+  width: 49.5%;
+  margin-left: 1%;
+  margin-top: 1%;
+  float: left; }
+  .pre pre:first-child {
+    margin-left: 0; }
+  .pre pre:nth-child(2n + 1) {
+    margin-left: 0; }
+  .pre pre:nth-child(1) {
+    margin-top: 0; }
+  .pre pre:nth-child(2) {
+    margin-top: 0; }
 
 #its-wrapper {
   font-size: 14px !important; }

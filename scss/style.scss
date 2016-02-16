@@ -157,6 +157,14 @@ fieldset{
 	color:#fff;
 }
 
+
+.pre{
+	@extend .clearfix;
+	pre{
+		@include equalSpaced(2, 1%, 100%);
+	}
+}
+
 #its-wrapper{font-size:14px!important;}
 #its-wrapper ul{
 	margin: 0!important;
