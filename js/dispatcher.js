@@ -16,11 +16,6 @@ var Dispatch = (function() {
   };
   var control_history = {};
 
-  var sameEvent = function(){
-
-  };
-
-
   // If element is its-control
   // if its-control there's extra data added
   var controlCheck = function(){
