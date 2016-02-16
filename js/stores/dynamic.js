@@ -1,7 +1,9 @@
-// Functions
+// -- Dynamic Element Module -- //
+// Tied to the Optional View Module
+// Dynamic elements update Views.cacheView();
 var Dynamic = (function() {
   
-  var init = function(data) {
+  var element = function(data) {
     if(data.control === 'new'){
       var view = data.element.parentNode.parentNode;
       var div = document.createElement('div');
@@ -13,7 +15,7 @@ var Dynamic = (function() {
   };
 
   return {
-    init: init
+    element: element
   };
 
 })();

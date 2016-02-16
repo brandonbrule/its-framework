@@ -1,4 +1,5 @@
-// Store Rules
+// -- Store -- //
+// Store Rules **
 // Every module must go through the store
 // Every module must be served the event date
 // Your module must decide what's important
@@ -24,8 +25,8 @@ var Store = (function() {
     Dynamic.init(data);
 
     // Export Module
-    // Mostly for Presenting State in Pre Tags
-    // But serves as an example of how to extend modules
+    // Export.state is tied to the State Module
+    // Prints State and Event Chain
     Export.state(state, document.querySelector('[its-view="state"]'));
     Export.view(data, document.querySelector('[its-view="event"]'));
   };

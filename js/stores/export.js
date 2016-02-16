@@ -1,5 +1,5 @@
-// Export
-// Is a presentational helper
+// -- Export Module -- //
+// Presentational helper
 // For Demo Purposes
 // It Prints out the Optional State Module and Event Chain 
 var Export = (function() {

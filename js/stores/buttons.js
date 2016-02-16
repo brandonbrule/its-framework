@@ -1,4 +1,8 @@
-// Functions
+// -- Buttons Module -- //
+// Sets Active Attributes to Buttons
+// If the Buttons state has changed or not
+// [its-active="true"]{ Active Styles }
+
 var Buttons = (function() {
 
   var resetActive = function(name){

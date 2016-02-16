@@ -1,4 +1,4 @@
-// State
+// -- State Module -- //
 // State Keeps track of all
 // its-control properties and values
 var State = (function() {

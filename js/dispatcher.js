@@ -1,4 +1,5 @@
-// Dispatcher Rules
+// -- Dispatcher -- //
+// Dispatcher Rules **
 // its-framework core
 // If you absolutely need events to transfer more data
 // Add it here - otherwise don't touch this.

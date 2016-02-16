@@ -1,4 +1,5 @@
-// Actions Rules
+// -- Actions -- //
+// Actions Rules **
 // All Actions are binded once on the document
 // All Actions must be sent to the Dispatcher
 // Element specific event listeners should be contained in own module.
