@@ -1,9 +1,12 @@
-// Functions
+// State
+// State Keeps track of all
+// its-control properties and values
 var State = (function() {
   var state = {};
 
   var init = function(data) {
     
+    // Don't keep track of submit values
     if(data.type !== 'submit'){
       state[data.control] = data.element.value;
     }
@@ -13,6 +16,8 @@ var State = (function() {
       delete state[data.control];
     }
 
+    // If it's a button and the state isn't changed
+    // This sets up button values as toggle-able
     if (data.element_type === 'BUTTON'){
       if (data.changed === false){
         delete state[data.control];

@@ -1,16 +1,24 @@
-// Functions
+// Export
+// Is a presentational helper
+// For Demo Purposes
+// It Prints out the Optional State Module and Event Chain 
 var Export = (function() {
 
   var last_control=[{control: null, event_type: null}];
 
-  var stateEvent = function(data, element){
+  // For Demo
+  // Shows Optional State Module
+  var state = function(data, element){
     if (element.getAttribute('its-view') === 'state'){
       var str = JSON.stringify(data, null, 4);
       element.innerHTML=str;
     }
   }
 
-  var viewEvents = function(data, element){
+  // For Demo
+  // Shows Events
+  // Shows Same Event Order
+  var view = function(data, element){
     if (element.getAttribute('its-view') === 'event'){
 
       var event_type;
@@ -69,14 +77,9 @@ var Export = (function() {
     }
   };
 
-  var init = function(data, element) {
-    viewEvents(data, element);
-    stateEvent(data, element);
-
-  };
-
   return {
-    init: init
+    view: view,
+    state: state
   };
 
 })();

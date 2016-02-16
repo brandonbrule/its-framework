@@ -26,8 +26,8 @@ var Store = (function() {
     // Export Module
     // Mostly for Presenting State in Pre Tags
     // But serves as an example of how to extend modules
-    Export.init(state, document.querySelector('[its-view="state"]'));
-    Export.init(data, document.querySelector('[its-view="event"]'));
+    Export.state(state, document.querySelector('[its-view="state"]'));
+    Export.view(data, document.querySelector('[its-view="event"]'));
   };
 
   return {
