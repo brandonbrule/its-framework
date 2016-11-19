@@ -31,6 +31,14 @@ var State = (function() {
       }
     }
 
+    
+    if(data.event_type === 'load'){
+      var controls = document.querySelectorAll('[its-control]');
+      [].forEach.call(controls, function(control){
+        state[control.getAttribute('its-control')] = control.value;
+      });
+    }
+
     return state;
     
   };

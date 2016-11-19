@@ -182,7 +182,6 @@ var Dispatch = (function() {
       data.changed = null;
     }
 
-
     return data;
     
   };
