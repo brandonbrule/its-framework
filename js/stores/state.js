@@ -15,11 +15,6 @@ var State = (function() {
       state[data.control] = data.element.value;
     }
 
-    // If empty delete object property
-    if (state[data.control] === '' || state[data.control] !== null){
-      delete state[data.control];
-    }
-
     // If it's a button and the state isn't changed
     // This sets up button values as toggle-able
     if (data.element_type === 'BUTTON'){
@@ -31,17 +26,23 @@ var State = (function() {
     // If checkbox and its unchecked delete property
     if (data.type === 'checkbox'){
       if (!data.element.checked){
-        delete state[data.control]
+        delete state[data.control];
       }
+    }
+
+    if (state['null'] === undefined){
+      delete state['null'];
     }
 
     
     if(data.event_type === 'load'){
       var controls = document.querySelectorAll('[its-control]');
       [].forEach.call(controls, function(control){
-        if(control.value){
-          state[control.getAttribute('its-control')] = control.value;
-        }
+          var control_type = control.getAttribute('its-control');
+          if(control.value.length > 0){
+            state[control_type] = control.value;
+          }
+          control.value = state[control_type];
       });
     }
 
