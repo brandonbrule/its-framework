@@ -42,7 +42,10 @@ var State = (function() {
           if(control.value.length > 0){
             state[control_type] = control.value;
           }
-          control.value = state[control_type];
+
+          if(state[control_type]){
+            control.value = state[control_type];
+          }
       });
     }
 
