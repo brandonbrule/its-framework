@@ -4,6 +4,10 @@
 var State = (function() {
   var state = {};
 
+  var Obj = function(){
+    return state;
+  }
+
   var init = function(data) {
     
     // Don't keep track of submit values
@@ -44,7 +48,8 @@ var State = (function() {
   };
 
   return {
-    init: init
+    init: init,
+    Obj: Obj
   };
 
 })();
