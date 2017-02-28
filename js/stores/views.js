@@ -23,10 +23,20 @@ var Views = (function() {
   var cacheViews = function() {
     var views = document.querySelectorAll('[its-view]');
     var controls = document.querySelectorAll('[its-control]');
+    var state = State.Obj();
 
     [].forEach.call(views, function(view) {
-      cache.views.type.push(view.getAttribute('its-view'));
+      var view_type = view.getAttribute('its-view');
+      cache.views.type.push(view_type);
       cache.views.element.push(view);
+      its.a(view_type);
+      if(state[view_type]){
+        view.innerHTML = state[view_type];
+        view.value = state[view_type];
+      } else {
+        view.innerHTML = '';
+        view.value = '';
+      }
     });
 
     [].forEach.call(controls, function(control) {
@@ -78,6 +88,10 @@ var Views = (function() {
     if (data.element_type === 'BUTTON'){
       update(data, 'views');
     }
+
+    if (data.event_type === 'load'){
+      cacheViews();
+    }
   };
 
   return {
@@ -87,4 +101,4 @@ var Views = (function() {
 
 })();
 
-Views.cacheViews();
+//Views.cacheViews();
