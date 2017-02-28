@@ -29,7 +29,6 @@ var Views = (function() {
       var view_type = view.getAttribute('its-view');
       cache.views.type.push(view_type);
       cache.views.element.push(view);
-      its.a(view_type);
       if(state[view_type]){
         view.innerHTML = state[view_type];
         view.value = state[view_type];
