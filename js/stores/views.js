@@ -132,7 +132,8 @@ var Views = (function() {
 
   return {
     init: init,
-    cacheViews: cacheViews
+    cacheViews: cacheViews,
+    updateAll: updateAll
   };
 
 })();
