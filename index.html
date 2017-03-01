@@ -16,6 +16,21 @@
     <div class="col-container">
 
       <div class="view-group">
+        <label for="msg">Test Already Loaded</label>
+        <fieldset>
+          <div class="col-container">
+            <div class="col-2">
+              <input its-control="already-loaded" type="text" value="100">
+            </div>
+            <div class="col-2">
+              <input its-control="already-loaded" type="text">
+            </div>
+          </div>
+        </fieldset>
+        <pre its-view="already-loaded"></pre>
+      </div>
+
+      <div class="view-group">
         <label for="msg">Single Input</label>
         <fieldset>
           <input its-control="single" value="" type="text">
@@ -82,7 +97,7 @@
           <div class="col-2">
             <fieldset>
               <button its-control="buttons-2" value="A">A</button>
-              <button its-control="buttons-2" value="B">B</button>
+              <button its-control="buttons-2" its-active="true" value="B">B</button>
               <button its-control="buttons-2" value="C">C</button>
             </fieldset>
             <pre its-view="buttons-2"></pre>
@@ -100,7 +115,7 @@
             </div>
             <div class="col-3">
               <span>:P</span>
-              <input its-control="radio1" type="radio" name="radiogroup" value=":P">
+              <input its-control="radio1" type="radio" checked name="radiogroup" value=":P">
             </div>
             <div class="col-3">
               <span>:O</span>
@@ -121,7 +136,7 @@
             </div>
             <div class="col-2">
               <span>Two</span>
-              <input its-control="checkbox2" type="checkbox" name="checkboxgroup" value="Two">
+              <input its-control="checkbox2" type="checkbox" name="checkboxgroup" checked value="Two">
             </div>
           </div>
         </fieldset>

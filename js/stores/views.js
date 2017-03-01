@@ -68,6 +68,51 @@ var Views = (function() {
       }
     });
   };
+
+  var updateAll = function(){
+    var state = State.Obj();
+
+    // Update Control Elements
+    [].forEach.call(cache.controls.element, function(element){
+      var control = element.getAttribute('its-control');
+      var value = state[control];
+
+      // If theres a value
+      if (value){
+      // Inputs, Text Areas, Everything But Buttons So Far
+        if (element.nodeName !== 'BUTTON'){
+
+          // Max range adjustments if needed
+          if (element.getAttribute('type') === 'number' && element.getAttribute('type') === 'range'){
+            if (element.max < value && !element.max){
+              element.max = value;
+            }
+          }
+
+          // Keep other input types in sync
+          if ( element.getAttribute('type') !== 'radio' && element.getAttribute('type') !== 'checkbox' && element.getAttribute('type') !== 'submit'){
+            element.value = value;
+          }
+
+        }
+
+      }
+
+    });
+
+    // Update View Elements
+    [].forEach.call(cache.views.element, function(element){
+      var control = element.getAttribute('its-view');
+      var value = state[control];
+      if(value){
+        if (element.nodeName === 'TEXTAREA' || element.nodeName === 'INPUT'){
+          element.value = value;
+        } else {
+          element.innerHTML = value;
+        }
+      }
+    });
+  };
   
   var init = function(data) {
     if (data.changed && data.control) {
@@ -81,6 +126,7 @@ var Views = (function() {
 
     if (data.event_type === 'load'){
       cacheViews();
+      updateAll();
     }
   };
 
