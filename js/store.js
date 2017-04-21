@@ -9,23 +9,23 @@ var Store = (function() {
   // Are Purely Optional
   // Add your own Functions
   // Your funtion must determine if data matters
-  var init = function(data) {
+  var init = function(ITS) {
 
     // Dynamically Added
     // Dynamic added Views will need to update view cache
     // see Dynamic Module for Example - Views.cacheViews();
-    Dynamic.element(data.ev);
+    Dynamic.element(ITS.ev);
 
     // Button Active
     // Simple module that styles buttons
-    //Buttons.init(data);
+    //Buttons.init(ITS.state);
 
     
-    // Export Module
+    // Help Module
     // Export.state is tied to the State Module
     // Prints State and Event Chain
-    Export.state(data.state, document.querySelector('[its-view="state"]'));
-    Export.view(data.ev, document.querySelector('[its-view="event"]'));
+    Help.state(ITS.state, document.querySelector('[its-view="state"]'));
+    Help.view(ITS.ev, document.querySelector('[its-view="event"]'));
   };
 
   return {
