@@ -18,7 +18,7 @@ var Store = (function() {
 
     // Button Active
     // Simple module that styles buttons
-    //Buttons.init(ITS.state);
+    //Buttons.init(ITS.ev);
 
     
     // Help Module
