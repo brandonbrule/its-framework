@@ -5,6 +5,17 @@
 // Element specific event listeners should be contained in own module.
 
 // KeyUp Event
+document.addEventListener("keydown", function(e) {
+	// Tab shift Tab doesn't trigger change (accessibility)
+	// Ha, interesting, Spacebar on button registers as click
+	// So it sends click and keypress with just keypress - only on buttons.
+	if (e.keyCode !== 9 && e.keyCode !== 16 && e.keyCode !== 32) {
+  		Dispatch.init(e);
+	}
+});
+
+
+// KeyUp Event
 document.addEventListener("keyup", function(e) {
 	// Tab shift Tab doesn't trigger change (accessibility)
 	// Ha, interesting, Spacebar on button registers as click
@@ -13,6 +24,7 @@ document.addEventListener("keyup", function(e) {
   		Dispatch.init(e);
 	}
 });
+
 
 // Change Event
 document.addEventListener("change", function(e) {

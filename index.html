@@ -97,7 +97,7 @@
           <div class="col-2">
             <fieldset>
               <button its-control="buttons-2" value="A">A</button>
-              <button its-control="buttons-2" its-active="true" value="B">B</button>
+              <button its-control="buttons-2" value="B">B</button>
               <button its-control="buttons-2" value="C">C</button>
             </fieldset>
             <pre its-view="buttons-2"></pre>
@@ -165,11 +165,26 @@
         </fieldset>
       </div>
 
+      <div class="view-group">
+        <label for="msg">Element/Input</label>
+        <fieldset>
+          <div class="col-container">
+            <div class="col-2">
+              <input its-control="shared-elements">
+            </div>
+            <div class="col-2">
+              <textarea its-control="shared-elements"></textarea>
+            </div>
+          </div>
+        </fieldset>
+        <pre its-view="shared-elements"></pre>
+      </div>
+
     </div>
 
     <div class="col-container">
       <div class="export-container">
-        <label>State</label>
+        <label>State.Obj();</label>
         <pre its-view="state"></pre>
       </div>
     </div>
@@ -185,9 +200,11 @@
     <script src='http://brandonbrule.github.io/itsa/js/itsa.js'></script>
     <script src="js/actions.js"></script>
     <script src="js/dispatcher.js"></script>
-    <script src="js/store.js"></script>
     <script src="js/stores/state.js"></script>
     <script src="js/stores/views.js"></script>
+    <script src="js/store.js"></script>
+
+
     <script src="js/stores/buttons.js"></script>
     <script src="js/stores/export.js"></script>
     <script src="js/stores/dynamic.js"></script>

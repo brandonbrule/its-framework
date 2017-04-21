@@ -58,7 +58,7 @@ var Dispatch = (function() {
   // If Element has innerHTML
   // Textarea, Could be button without value.
   var setInnerHTML = function(){
-      if (data.element.innerHTML) {
+      if (!data.element.value) {
         data.innerHTML = data.element.innerHTML;
       } else {
         data.innerHTML = null;
@@ -94,8 +94,7 @@ var Dispatch = (function() {
           // This sets them as toggleable
           if (data.element_type === 'BUTTON'){
             data.changed = false;
-            data.value = '';
-            control_history[data.control][0].value = '';
+
           }
 
           // Buttons toggle data change
@@ -189,7 +188,21 @@ var Dispatch = (function() {
   // Receive eventListeners 
   // Distribute to Store
   var init = function(e) {
-      var data = Publish(e);
+      var ev = Publish(e);
+      var state = State.init(ev);
+      var data = {
+        ev: ev,
+        state: state
+      };
+      // State Module
+      // State of all its-control
+      
+
+      // Update its-view elements 
+      // with coorisponding control value.
+      Views.init(ev);
+
+
       Store.init(data);
   };
   return {
