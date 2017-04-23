@@ -74,7 +74,8 @@ fieldset {
   background: #fff; }
 
 .header {
-  padding: 1.85em;
+  padding: 1.5em;
+  margin: 2em auto;
   border: 5px solid #95c7b3; }
 
 @media screen and (max-width: 399px) {
