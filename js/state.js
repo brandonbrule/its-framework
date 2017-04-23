@@ -80,8 +80,13 @@ var State = (function() {
 
     // If there's nothing, disregard from state.
     // (state obj.prop will still be undefined)
-    if (state['null'] === undefined){
+    if (state['null']){
       delete state['null'];
+    }
+    
+    if(state['']){
+      its.a('test');
+      delete state[''];
     }
 
     
