@@ -59,7 +59,9 @@ var Dispatch = (function() {
   // Textarea, Could be button without value.
   var setInnerHTML = function(){
       if (!data.element.value) {
-        data.innerHTML = data.element.innerHTML;
+        if(data.element.nodeName !== 'SELECT'){
+          data.innerHTML = data.element.innerHTML;
+        }
       } else {
         data.innerHTML = null;
       }

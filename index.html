@@ -207,7 +207,7 @@
         <p>The core organizing principle is to delegate all events and capture a view and state relationship between elements. By adding its-control or its-view attributes <strong>its-framework</strong> will keep an ongoing capture/update process on all corresponding elements. its-framework caching structure does not include a virtual DOM but is optimized with efficient array access queries after an initial document scan.</p>
     </div>
 
-    <div class="col-container header" style="min-height:820px;">
+    <div class="col-container header" style="min-height:910px;">
       <div class="col-2">
       <p>Your App Starting Point</p>
         <ul>
@@ -277,8 +277,10 @@ var Store = (function() {
       <option value="Commander">Commander</option>
       </select>
       <button its-control="title" value="Admiral">Admiral</button>
+      <input its-control="title" type="checkbox" name="title" value="Admiral">
       <button its-control="title" value="Commander">Commander</button>
       <input its-control="title" type="checkbox" name="title" value="Commander">
+
       <input its-control="name" type="text" style="width:auto; display:inline-block;">
 <pre>
 &lt;!-- its-framework --&gt;
