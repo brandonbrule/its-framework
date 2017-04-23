@@ -33,14 +33,11 @@ p {
   margin: 0; }
 
 pre {
-  padding-top: 5px;
   margin: 5px 0;
-  padding: 10px;
-  line-height: 1.4;
+  padding: 4px 8px;
+  line-height: 1.6;
   display: inline-block;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 14px;
   background: #95c7b3;
   color: #4a695c;
   white-space: pre-wrap;
@@ -77,7 +74,7 @@ fieldset {
   background: #fff; }
 
 .header {
-  padding: 2em;
+  padding: 1.85em;
   border: 5px solid #95c7b3; }
 
 @media screen and (max-width: 399px) {
@@ -137,9 +134,9 @@ fieldset {
 
 @media screen and (min-width: 500px) {
   .col-2 {
-    width: 47.5%;
-    margin-left: 5%;
-    margin-top: 5%;
+    width: 48%;
+    margin-left: 4%;
+    margin-top: 4%;
     float: left; }
     .col-2:first-child {
       margin-left: 0; }

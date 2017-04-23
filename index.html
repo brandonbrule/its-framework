@@ -41,7 +41,6 @@
 <pre>
 &lt;label&gt;Name:&lt;/label&gt;
 &lt;input its-control=&quot;name&quot; type=&quot;text&quot;&gt;
-
 &lt;p&gt;Hi &lt;strong its-view=&quot;name&quot;&gt;&lt;/strong&gt;!&lt;/p&gt;
 </pre>
       </div>
@@ -207,7 +206,7 @@
         <p>The core organizing principle is to delegate all events and capture a view and state relationship between elements. By adding its-control or its-view attributes <strong>its-framework</strong> will keep an ongoing capture/update process on all corresponding elements. its-framework caching structure does not include a virtual DOM but is optimized with efficient array access queries after an initial document scan.</p>
     </div>
 
-    <div class="col-container header" style="min-height:910px;">
+    <div class="col-container header" style="min-height:980px;">
       <div class="col-2">
       <p>Your App Starting Point</p>
         <ul>
@@ -283,7 +282,9 @@ var Store = (function() {
       <input its-control="title" type="checkbox" name="title" value="Commander">
       <input its-control="title" type="radio" name="title" value="Commander">
       <input its-control="title" type="text" style="width:auto; display:inline-block;">
+      <br><br>
       <p>Greetings <span its-view="title"></span> <span its-view="name"><span></p>
+      <br>
 <pre>
 &lt;!-- its-framework --&gt;
 &lt;script src=&quot;https://brandonbrule.github.io/its-framework/js/actions.js&quot;&gt;&lt;/script&gt;
