@@ -1,5 +1,4 @@
 # its-framework
-flux inspired modular javascript framework
 
 its-framework is a lightweight script that manages state and events for elements. 
 It's heavily inspired by flux and modular pattern design.
