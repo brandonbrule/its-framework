@@ -209,12 +209,13 @@
       <div class="col-2">
         <label>Nested Properties:</label>
 <pre>
-&lt;label&gt;First Name:&lt;/label&gt;
 &lt;input its-control=&quot;Person.id.name.first&quot;&gt;
 &lt;input its-control=&quot;Person.id.name.last&quot;&gt;
+&lt;input its-control=&quot;Person.id.age&quot;&gt;
 
 &lt;span its-view=&quot;Person.id.name.first&quot;&gt;
 &lt;span its-view=&quot;Person.id.name.last&quot;&gt;
+&lt;span its-view=&quot;Person.id.age&quot;&gt;
 </pre>
       </div>
       <div class="col-2">
@@ -223,9 +224,11 @@
           <input style="display:inline-block; width: 250px" its-control="Person.id.name.first" value="Brandon">
           <label style="display:inline-block;">Last Name:</label>
           <input style="display:inline; width: 250px" its-control="Person.id.name.last" value="Brule">
+          <label style="display:inline-block;">Age:</label>
+          <input style="display:inline; width: 250px" its-control="Person.id.age" value="29">
 
           <!-- Display state property value to element -->
-          <p>Hi <span its-view="Person.id.name.first"></span> <span its-view="Person.id.name.last"></span>!</p>
+          <p><span its-view="Person.id.name.first"></span> <span its-view="Person.id.name.last"></span> is <span its-view="Person.id.age"></span> years old</p>
       </div>
     </div>
 

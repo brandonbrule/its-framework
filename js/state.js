@@ -9,7 +9,7 @@ var State = (function() {
     return state;
   }
 
-  var propObj = function(state, str_arr, value){
+  var buildObjectFromString = function(state, str_arr, value){
     lastKeyIndex = str_arr.length-1;
    for (var i = 0; i < lastKeyIndex; ++ i) {
      key = str_arr[i];
@@ -22,49 +22,6 @@ var State = (function() {
    }
    state[str_arr[lastKeyIndex]] = value;
   }
-
-  var buildObjectFromString = function(str, value){
-    var str_arr = str.split('.');
-    propObj(state, str_arr, value);
-  };
-
-  // This function will return a property inside a nested object by string.
-  // This function needs two arguments
-  // The property "prop", "prop.prop", "prop.obj.prop" - as a string.
-  // The master object the properties are referencing.
-  var returnNestedProperty = function(str, master_object) {
-    
-    // Break String Up by Period
-    // This will form a new array of each "property"
-    var str_array = str.split('.');
-    
-    // Hold a copy of each nested object properties.
-    var tmp_obj = null;
-
-    // Iterate over the input properties
-    for (var i = 0; i < str_array.length; i++) {
-      var current = str_array[i];
-      
-      // If tmp_obj initially is null
-      // On the first iteration of object properties
-      // We assign the first property of the State object to tmp_object
-      if (!tmp_obj) {
-        tmp_obj = master_object[current];
-        
-      // If tmp_obj is an object already
-      // We will be on the next level of the object
-      // At this level we're going to set tmp_obj
-      // To the next nested object property.
-      } else {
-        tmp_obj = tmp_obj[current];
-      }
-      
-    }
-
-    return tmp_obj;
-
-  };
-
 
   // A Hard Refresh based off Element Info
   // Queries all its-control elements, and updates
@@ -79,7 +36,8 @@ var State = (function() {
           
           // its-control="OBJ.obj.prop"
           if(control_type.indexOf('.') !== -1){
-            buildObjectFromString(control_type, control_value);
+            var str_arr = control_type.split('.');
+            buildObjectFromString(state, str_arr, control_value);
 
 
           // Standard state.prop relationship
@@ -129,7 +87,8 @@ var State = (function() {
 
       // If there's . in prop name treat it like nested object
       if(data.control.indexOf('.') !== -1){
-        buildObjectFromString(data.control, data.value);
+        var str_arr = data.control.split('.');
+        buildObjectFromString(state, str_arr, data.value);
       
 
       // Just a regular property item value
