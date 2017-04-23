@@ -204,9 +204,10 @@ var Dispatch = (function() {
       // Update its-view elements 
       // with coorisponding control value.
       Views.init(ev);
-
-
-      Store.init(data);
+      
+      if (typeof Store != "undefined") {
+        Store.init(data);
+      }
   };
   return {
     init: init
