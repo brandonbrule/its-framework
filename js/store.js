@@ -14,7 +14,8 @@ var Store = (function() {
     // Dynamically Added
     // Dynamic added Views will need to update view cache
     // see Dynamic Module for Example - Views.cacheViews();
-    Dynamic.element(ITS.ev);
+    //Dynamic.element(ITS.ev); 
+
 
     // Button Active
     // Simple module that styles buttons

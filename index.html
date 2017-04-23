@@ -9,8 +9,49 @@
   <body>
 
     <div class="col-container header">
-        <h1><strong>its-framework</strong> - flux inspired modular javascript framework</h1> 
-        <button its-control="wut" value="ʕ•ᴥ•ʔ">¯\_(ツ)_/¯</button> <span its-view="wut"></span></label>
+        <h1><strong>its-framework</strong></strong> is a lightweight script that manages state and events with data-binded html elements. <br>It's heavily inspired by flux and modular pattern design.</h1>
+    </div>
+
+
+    <div class="col-container header">
+      <label>Get Started:</label>
+<pre>
+&lt;!-- its-framework --&gt;
+&lt;script src=&quot;http://brandonbrule.github.io/its-framework/js/actions.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://brandonbrule.github.io/its-framework/js/dispatcher.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://brandonbrule.github.io/its-framework/js/state.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://brandonbrule.github.io/its-framework/js/views.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- its.a - Optional Debugging --&gt;
+&lt;script src=&quot;http://brandonbrule.github.io/itsa/js/itsa.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- Your Code (See Below) --&gt;
+&lt;script src=&quot;js/my-app.js&quot;&gt;&lt;/script&gt;
+</pre>
+    </div>
+
+    <div class="col-container header">
+        <p><strong>its-framework</strong> supports multiple element views and controls.  All that's required are: <br> its-control="property" and/or its-view="property" attributes.</p>
+    </div>
+
+    <div class="col-container header">
+      <div class="col-2">
+        <label>HTML:</label>
+<pre>
+&lt;label&gt;Name:&lt;/label&gt;
+&lt;input its-control=&quot;name&quot; type=&quot;text&quot;&gt;
+
+&lt;p&gt;Hi &lt;strong its-view=&quot;name&quot;&gt;&lt;/strong&gt;!&lt;/p&gt;
+</pre>
+      </div>
+      <div class="col-2">
+          <!-- Bind "name" to state object -->
+          <label style="display:inline-block;">Name:</label>
+          <input its-control="name" type="text" style="display:inline-block;width:auto">
+
+          <!-- Display state property value to element -->
+          <p>Hi <strong its-view="name"></strong>!</p>
+      </div>
     </div>
 
     <div class="col-container">
@@ -33,22 +74,22 @@
       <div class="view-group">
         <label for="msg">Single Input</label>
         <fieldset>
-          <input its-control="single" value="" type="text">
+          <input its-control="single-input" value="" type="text">
         </fieldset>
-        <pre its-view="single"></pre>
+        <pre its-view="single-input"></pre>
       </div>
 
       <div class="view-group">
         <label for="msg">Multiple Views</label>
         <fieldset>
-          <input its-control="multi" value="" type="text">
+          <input its-control="multiple-views" value="" type="text">
         </fieldset>
         <div class="col-container">
           <div class="col-2">
-            <pre its-view="multi"></pre>
+            <pre its-view="multiple-views"></pre>
           </div>
           <div class="col-2">
-            <pre its-view="multi"></pre>
+            <pre its-view="multiple-views"></pre>
           </div>
         </div>
       </div>
@@ -58,15 +99,23 @@
         <fieldset>
           <div class="col-container">
             <div class="col-2">
-              <input its-control="shared" type="text">
+              <input its-control="shared-inputs" type="text">
             </div>
             <div class="col-2">
-              <input its-control="shared" type="text">
+              <input its-control="shared-inputs" type="text">
             </div>
           </div>
         </fieldset>
-        <pre its-view="shared"></pre>
+        <pre its-view="shared-inputs"></pre>
       </div>
+
+    </div>
+
+    <div class="col-container header">
+        <p><strong>its-framework</strong> synchronizes different element types and multiple element relationships.</p>
+    </div>
+
+    <div class="col-container">
 
       <div class="view-group">
         <label for="msg">Shared Types</label>
@@ -132,80 +181,121 @@
           <div class="col-container">
             <div class="col-2">
               <span>One</span>
-              <input its-control="checkbox1" type="checkbox" name="checkboxgroup" value="One">
+              <input its-control="my-checkbox" type="checkbox" name="checkboxgroup" value="One">
             </div>
             <div class="col-2">
               <span>Two</span>
-              <input its-control="checkbox2" type="checkbox" name="checkboxgroup" checked value="Two">
+              <input its-control="my-other-checkbox" type="checkbox" name="checkboxgroup" checked value="Two">
             </div>
           </div>
         </fieldset>
          <div class="col-container">
             <div class="col-2">
-              <pre its-view="checkbox1"></pre>
+              <pre its-view="my-checkbox"></pre>
             </div>
             <div class="col-2">
-              <pre its-view="checkbox2"></pre>
+              <pre its-view="my-other-checkbox"></pre>
             </div>
           </div>
-      </div>
-
-      <div class="view-group view-dynamic">
-        <div class="col-container">
-          <div class="col-2">
-            <label for="msg">Dynamic</label>
-          </div>
-          <div class="col-2">
-            <input its-control="new" value="New" type="submit">
-          </div>
-          <hr style="border-color:transparent;">
-        </div>
-        <fieldset>
-          <pre its-view="dynamic"></pre>
-        </fieldset>
-      </div>
-
-      <div class="view-group">
-        <label for="msg">Element/Input</label>
-        <fieldset>
-          <div class="col-container">
-            <div class="col-2">
-              <input its-control="shared-elements">
-            </div>
-            <div class="col-2">
-              <textarea its-control="shared-elements"></textarea>
-            </div>
-          </div>
-        </fieldset>
-        <pre its-view="shared-elements"></pre>
       </div>
 
     </div>
 
-    <div class="col-container">
-      <div class="export-container">
-        <label>State.Obj();</label>
-        <pre its-view="state"></pre>
+    <div class="col-container header">
+        <p><strong>its-framework</strong> encourages a centralized approach in a modular environment. The global state and event manager unifies just enough to keep the complex operations of a team environment in a centralized location.</p>
+        <p>The core organizing principle is to delegate all events and capture a view and state relationship between elements. By adding its-control or its-view attributes <strong>its-framework</strong> will keep an ongoing capture/update process on all corresponding elements. its-framework caching structure does not include a virtual DOM but is optimized with efficient array access queries after an initial document scan.</p>
+    </div>
+
+    <div class="col-container header" style="min-height:820px;">
+      <div class="col-2">
+      <p>Your App Starting Point</p>
+        <ul>
+          <li>Every module must go through the Store</li>
+          <li>Every module should serve ITS event and state data</li>
+          <li>Your module must decide what's important</li>
+        </ul>
+<pre>
+&lt;!-- Your Code --&gt;
+&lt;script src=&quot;js/my-app.js&quot;&gt;&lt;/script&gt;
+</pre>
+        <br>
+<pre>
+// ---- Store ---- //
+// -- my-app.js -- //
+
+var Store = (function() {
+
+  // Call all your modules in here.
+  // Pass ITS object to each module
+  var init = function(ITS) {
+
+    // Event Object
+    console.log(ITS.ev);
+
+    // State
+    //console.log(ITS.state);
+  };
+
+  return {
+    init: init
+  };
+
+})();
+</pre>
+      </div>
+      <div class="col-2">
+          <div>
+            <label><pre its-view="button-set-2"></pre> Event Object</label>
+            <fieldset>
+              
+              <button its-control="button-set-2" its-active="true" value="A">A</button>
+              <button its-control="button-set-2" value="B">B</button>
+              <button its-control="button-set-2" value="C">C</button>
+              <button value="nothing">No its-control</button>
+              <input style="display:inline; width: auto" its-control="name">
+            </fieldset>
+
+            <br><br>
+            <label><strong>ITS.state</strong> or <strong>State.Obj()</strong> globally</label>
+            <pre its-view="state"></pre>
+
+            <br>
+            <br>
+
+            <label><strong>ITS.ev</strong></label>
+            <div class="pre" its-view="event"></div>
+          </div>
       </div>
     </div>
 
-    <div class="col-container">
-      <div class="export-container">
-        <label>Event</label>
-        <div class="pre" its-view="event"></div>
-      </div>
+        <div class="col-container header">
+      <label>Get Started:</label>
+<pre>
+&lt;!-- its-framework --&gt;
+&lt;script src=&quot;http://brandonbrule.github.io/its-framework/js/actions.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://brandonbrule.github.io/its-framework/js/dispatcher.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://brandonbrule.github.io/its-framework/js/state.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://brandonbrule.github.io/its-framework/js/views.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- its.a - Optional Debugging --&gt;
+&lt;script src=&quot;http://brandonbrule.github.io/itsa/js/itsa.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- Your Code (See Below) --&gt;
+&lt;script src=&quot;js/my-app.js&quot;&gt;&lt;/script&gt;
+</pre>
     </div>
+
+    
 
 
     <script src='http://brandonbrule.github.io/itsa/js/itsa.js'></script>
     <script src="js/actions.js"></script>
     <script src="js/dispatcher.js"></script>
-    <script src="js/stores/state.js"></script>
-    <script src="js/stores/views.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/views.js"></script>
     <script src="js/store.js"></script>
 
 
-    <script src="js/stores/buttons.js"></script>
     <script src="js/stores/help.js"></script>
     <script src="js/stores/dynamic.js"></script>
     

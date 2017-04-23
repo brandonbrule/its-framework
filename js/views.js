@@ -74,14 +74,33 @@ var Views = (function() {
             element.value = data.value;
           }
 
-        }
-
-      // If it's a View (Not a Control);
-      // Views are generally simple.
       } else {
-        element.innerHTML = data.value;
+        forButtons(element, data.control, data.value);
       }
+
+    } else {
+      element.innerHTML = data.value;
+    }
     });
+  };
+
+
+  // Set Active State on Buttons
+  var forButtons = function(element, control_type, control_value){
+      var indexes = returnIndexes(cache['controls'].type, control_type);
+      var active_value = element.value;
+      var active_group = element.getAttribute('its-control');
+      [].forEach.call(indexes, function(index){
+        var element = cache['controls'].element[index];
+        if(element.getAttribute('its-control') === control_type){
+
+          element.removeAttribute('its-active');
+        }
+        if(element.value === control_value){
+          element.setAttribute('its-active', true);
+        }
+        
+      });
   };
 
 
@@ -112,6 +131,26 @@ var Views = (function() {
             element.value = value;
           }
 
+
+        // If any of the elements is active,
+        // Update other elements
+        } else {
+          if(element.hasAttribute('its-control') && element.getAttribute('its-active') === 'true'){
+            var indexes = returnIndexes(cache['controls'].type, element.getAttribute('its-control'));
+            var active_value = element.value;
+            var active_group = element.getAttribute('its-control');
+            [].forEach.call(indexes, function(index){
+              var element = cache['controls'].element[index];
+              if(element.getAttribute === active_group){
+                element.removeAttribute('its-active');
+              }
+              if(element.value === active_value){
+                element.setAttribute('its-active', true);
+              }
+              
+            });
+          }
+          
         }
 
       }
@@ -138,7 +177,7 @@ var Views = (function() {
       update(data, 'controls');
     }
 
-    if (data.element_type === 'BUTTON'){
+    if (data.nodeName === 'BUTTON'){
       update(data, 'views');
     }
 

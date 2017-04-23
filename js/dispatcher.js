@@ -92,7 +92,7 @@ var Dispatch = (function() {
           // Unless it's a button.
           // Buttons can be same, or not even if values match.
           // This sets them as toggleable
-          if (data.element_type === 'BUTTON'){
+          if (data.nodeName === 'BUTTON'){
             data.changed = false;
 
           }
@@ -151,13 +151,13 @@ var Dispatch = (function() {
       data.changed = true;
       data.control = null;
       data.element = 'window';
-      data.element_type = null;
+      data.nodeName = null;
       return data;
     }
     
     // If its any other event
     data.element = e.target;
-    data.element_type = e.target.nodeName;
+    data.nodeName = e.target.nodeName;
     data.value = null;
     data.innerHTML = null;
 
@@ -179,6 +179,7 @@ var Dispatch = (function() {
         controlHistory();
     } else {
       data.changed = null;
+      setValue();
     }
 
     return data;

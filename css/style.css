@@ -5,7 +5,7 @@ html {
 *, *:before, *:after {
   box-sizing: inherit; }
 
-.clearfix:after, .col-container:after, .pre:after {
+.clearfix:after, .col-container:after {
   content: "";
   display: table;
   clear: both; }
@@ -19,37 +19,41 @@ html {
 
 body {
   font-family: arial;
-  background: #69887b;
-  color: #69A089;
+  background: #4a695c;
+  color: #4a695c;
   margin: 0 2%; }
 
 h1 {
-  color: #53A08E;
-  font-size: 1em;
+  font-size: 1.15em;
   float: left;
   margin: 0;
   font-weight: normal; }
 
 pre {
-  border-top: 1px dotted #7EBEA3;
   padding-top: 5px;
   margin: 5px 0;
+  padding: 10px;
+  line-height: 1.4;
+  display: inline-block;
   font-family: "Courier New", Courier, monospace;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
-  color: #965F76;
+  background: #95c7b3;
+  color: #4a695c;
   white-space: pre-wrap;
   word-wrap: break-word; }
 
 label {
   display: block;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  font-size: 0.875em;
+  font-weight: 600; }
 
 input, textarea {
   width: 100%;
   margin: 0;
   padding: 5px;
-  border: 2px solid #69A089;
+  border: 1px solid #4a695c;
   color: #69A089; }
 
 input[type="radio"],
@@ -77,7 +81,7 @@ fieldset {
       margin-left: 2%;
       margin-top: 2%;
       float: left;
-      height: 125px; }
+      height: 145px; }
       .view-group:first-child {
         margin-left: 0; }
       .view-group:nth-child(2n + 1) {
@@ -92,7 +96,7 @@ fieldset {
       margin-left: 2%;
       margin-top: 2%;
       float: left;
-      height: 125px; }
+      height: 145px; }
       .view-group:first-child {
         margin-left: 0; }
       .view-group:nth-child(3n + 1) {
@@ -109,7 +113,7 @@ fieldset {
       margin-left: 1%;
       margin-top: 1%;
       float: left;
-      height: 125px; }
+      height: 145px; }
       .view-group:first-child {
         margin-left: 0; }
       .view-group:nth-child(4n + 1) {
@@ -170,22 +174,9 @@ fieldset {
     margin-top: 0; }
 
 [its-active="true"] {
-  background: #7EBEA3;
+  background: #4a695c;
+  border-color: transparent;
   color: #fff; }
-
-.pre pre {
-  width: 49.5%;
-  margin-left: 1%;
-  margin-top: 1%;
-  float: left; }
-  .pre pre:first-child {
-    margin-left: 0; }
-  .pre pre:nth-child(2n + 1) {
-    margin-left: 0; }
-  .pre pre:nth-child(1) {
-    margin-top: 0; }
-  .pre pre:nth-child(2) {
-    margin-top: 0; }
 
 #its-wrapper {
   font-size: 14px !important; }

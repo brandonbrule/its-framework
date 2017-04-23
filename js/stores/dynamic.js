@@ -5,7 +5,7 @@ var Dynamic = (function() {
   
   var element = function(data) {
     if(data.control === 'new'){
-      var view = data.element.parentNode.parentNode;
+      var view = data.element.parentNode;
       var div = document.createElement('textarea');
       div.setAttribute('class', 'dynamic-row');
       div.setAttribute('its-control', 'dynamic');

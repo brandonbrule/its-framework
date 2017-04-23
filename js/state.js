@@ -65,7 +65,7 @@ var State = (function() {
 
     // If it's a button and the state isn't changed
     // This sets up button values as toggle-able
-    if (data.element_type === 'BUTTON'){
+    if (data.nodeName === 'BUTTON'){
       if (!data.element.value){
         delete state[data.control];
       }
