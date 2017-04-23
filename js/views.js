@@ -74,6 +74,10 @@ var Views = (function() {
             element.value = data.value;
           }
 
+          if (element.getAttribute('type') === 'radio' || element.getAttribute('type') === 'checkbox'){
+            forButtons(element, data.control, data.value);
+          }
+
       } else {
         forButtons(element, data.control, data.value);
       }
@@ -94,10 +98,15 @@ var Views = (function() {
         var element = cache['controls'].element[index];
         if(element.getAttribute('its-control') === control_type){
           element.removeAttribute('its-active');
+          element.checked = false;
         }
         if(element.value === control_value){
           if(element.nodeName === 'BUTTON'){
             element.setAttribute('its-active', true);
+          }
+
+          if (element.getAttribute('type') === 'radio' || element.getAttribute('type') === 'checkbox'){
+            element.checked = true;
           }
         }
         
