@@ -93,11 +93,12 @@ var Views = (function() {
       [].forEach.call(indexes, function(index){
         var element = cache['controls'].element[index];
         if(element.getAttribute('its-control') === control_type){
-
           element.removeAttribute('its-active');
         }
         if(element.value === control_value){
-          element.setAttribute('its-active', true);
+          if(element.nodeName === 'BUTTON'){
+            element.setAttribute('its-active', true);
+          }
         }
         
       });
@@ -145,7 +146,9 @@ var Views = (function() {
                 element.removeAttribute('its-active');
               }
               if(element.value === active_value){
-                element.setAttribute('its-active', true);
+                if(element.nodeName === 'BUTTON'){
+                  element.setAttribute('its-active', true);
+                }
               }
               
             });
