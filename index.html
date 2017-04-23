@@ -205,6 +205,39 @@
         <p><strong>its-framework</strong> encourages a centralized approach in a modular environment. The global state and event manager unifies just enough to keep the complex operations of a team environment in a centralized location. The core principle is to delegate all events and capture a view and state relationship between elements. By adding its-control or its-view attributes <strong>its-framework</strong> will keep an ongoing capture/update process on all corresponding elements. its-framework caching structure does not include a virtual DOM but is optimized with efficient array access queries after an initial document scan.</p>
     </div>
 
+    <div class="col-container header">
+      <div class="col-2">
+        <label>Nested Properties:</label>
+<pre>
+&lt;label&gt;First Name:&lt;/label&gt;
+&lt;input its-control=&quot;Person.id.name.first&quot;&gt;
+&lt;input its-control=&quot;Person.id.name.last&quot;&gt;
+
+&lt;span its-view=&quot;Person.id.name.first&quot;&gt;
+&lt;span its-view=&quot;Person.id.name.last&quot;&gt;
+</pre>
+      </div>
+      <div class="col-2">
+          <!-- Bind "name" to state object -->
+          <label style="display:inline-block;">First Name:</label>
+          <input style="display:inline-block; width: 250px" its-control="Person.id.name.first" value="Brandon">
+          <label style="display:inline-block;">Last Name:</label>
+          <input style="display:inline; width: 250px" its-control="Person.id.name.last" value="Brule">
+
+          <!-- Display state property value to element -->
+          <p>Hi <span its-view="Person.id.name.first"></span> <span its-view="Person.id.name.last"></span>!</p>
+      </div>
+    </div>
+
+
+
+    <div class="col-container header">
+      
+
+      
+    </div>
+
+
     <div class="col-container header" style="min-height:1020px;">
       <div class="col-2">
       <p>Your App Starting Point</p>
