@@ -57,7 +57,7 @@
     <div class="col-container">
 
       <div class="view-group">
-        <label for="msg">Preset Value</label>
+        <label>Preset Value</label>
         <fieldset>
           <div class="col-container">
             <div class="col-2">
@@ -72,7 +72,7 @@
       </div>
 
       <div class="view-group">
-        <label for="msg">Single Input</label>
+        <label>Single Input</label>
         <fieldset>
           <input its-control="single-input" value="" type="text">
         </fieldset>
@@ -80,7 +80,7 @@
       </div>
 
       <div class="view-group">
-        <label for="msg">Multiple Views</label>
+        <label>Multiple Views</label>
         <fieldset>
           <input its-control="multiple-views" value="" type="text">
         </fieldset>
@@ -95,7 +95,7 @@
       </div>
 
       <div class="view-group">
-        <label for="msg">Shared Inputs</label>
+        <label>Shared Inputs</label>
         <fieldset>
           <div class="col-container">
             <div class="col-2">
@@ -118,7 +118,7 @@
     <div class="col-container">
 
       <div class="view-group">
-        <label for="msg">Shared Types</label>
+        <label>Shared Types</label>
         <fieldset>
           <div class="col-container">
             <div class="col-2">
@@ -133,7 +133,7 @@
       </div>
 
       <div class="view-group">
-        <label for="msg">Button Sets</label>
+        <label>Button Sets</label>
         <div class="col-container">
           <div class="col-2">
             <fieldset>
@@ -155,7 +155,7 @@
       </div>
 
       <div class="view-group">
-        <label for="msg">Radio Options</label>
+        <label>Radio Options</label>
         <fieldset>
           <div class="col-container">
             <div class="col-3">
@@ -176,7 +176,7 @@
       </div>
 
       <div class="view-group">
-        <label for="msg">Checkboxes</label>
+        <label>Checkboxes</label>
         <fieldset>
           <div class="col-container">
             <div class="col-2">
@@ -202,7 +202,21 @@
     </div>
 
     <div class="col-container header">
-        <p><strong>its-framework</strong> encourages a centralized approach in a modular environment. The global state and event manager unifies just enough to keep the complex operations of a team environment in a centralized location. The core principle is to delegate all events and capture a view and state relationship between elements. By adding its-control or its-view attributes <strong>its-framework</strong> will keep an ongoing capture/update process on all corresponding elements. its-framework caching structure does not include a virtual DOM but is optimized with efficient array access queries after an initial document scan.</p>
+      <label>select/checkbox/radio/button/input:</label>
+      <select its-control="title">
+      <option value=""></option>
+      <option value="Admiral">Admiral</option>
+      <option value="Commander">Commander</option>
+      </select>
+      <button its-control="title" value="Admiral">Admiral</button>
+      <input its-control="title" type="checkbox" name="title" value="Admiral">
+      <input its-control="title" type="radio" name="title" value="Admiral">
+      <button its-control="title" value="Commander">Commander</button>
+      <input its-control="title" type="checkbox" name="title" value="Commander">
+      <input its-control="title" type="radio" name="title" value="Commander">
+      <input its-control="title" type="text" style="width:auto; display:inline-block;">
+      <br><br>
+      <p>Greetings <span its-view="title"></span> <span its-view="name"><span></p>
     </div>
 
     <div class="col-container header">
@@ -221,11 +235,11 @@
       <div class="col-2">
           <!-- Bind "name" to state object -->
           <label style="display:inline-block;">First Name:</label>
-          <input style="display:inline-block; width: 250px" its-control="Person.id.name.first" value="Brandon">
+          <input style="display:inline-block; width: 250px" its-control="Person.id.name.first">
           <label style="display:inline-block;">Last Name:</label>
-          <input style="display:inline; width: 250px" its-control="Person.id.name.last" value="Brule">
+          <input style="display:inline; width: 250px" its-control="Person.id.name.last">
           <label style="display:inline-block;">Age:</label>
-          <input style="display:inline; width: 250px" its-control="Person.id.age" value="29">
+          <input style="display:inline; width: 250px" its-control="Person.id.age">
 
           <!-- Display state property value to element -->
           <p><span its-view="Person.id.name.first"></span> <span its-view="Person.id.name.last"></span> is <span its-view="Person.id.age"></span> years old</p>
@@ -233,9 +247,15 @@
     </div>
 
 
+    <div class="col-container header">
+        <p><strong>its-framework</strong> encourages a centralized approach in a modular environment. The global state and event manager unifies just enough to keep the complex operations of a team environment in a centralized location. The core principle is to delegate all events and capture a view and state relationship between elements. By adding its-control or its-view attributes <strong>its-framework</strong> will keep an ongoing capture/update process on all corresponding elements. its-framework caching structure does not include a virtual DOM but is optimized with efficient array access queries after an initial document scan.</p>
+    </div>
 
-    <div class="col-container header" style="min-height:1020px;">
+
+
+    <div class="col-container header" style="min-height:700px;">
       <div class="col-2">
+        <!--
       <p>Your App Starting Point</p>
         <ul>
           <li>Every module must go through the Store</li>
@@ -270,6 +290,11 @@ var Store = (function() {
 
 })();
 </pre>
+-->
+      
+            <label><strong>ITS.ev</strong></label>
+            <div style="min-width:300px" class="pre" its-view="event"></div>
+
       </div>
       <div class="col-2">
           <div>
@@ -290,28 +315,14 @@ var Store = (function() {
             <br>
             <br>
 
-            <label><strong>ITS.ev</strong></label>
-            <div style="min-width:300px" class="pre" its-view="event"></div>
+            
           </div>
       </div>
     </div>
 
         <div class="col-container header">
       <label>Try it on CodePen: <a href="https://codepen.io/brandonbrule/pen/eWzKqq"><img width="25px" src="https://production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg"></a><a id="share-zip" href="https://codepen.io/brandonbrule/share/zip/eWzKqq/" class="button">.zip</a></label>
-      <select its-control="title">
-      <option value=""></option>
-      <option value="Admiral">Admiral</option>
-      <option value="Commander">Commander</option>
-      </select>
-      <button its-control="title" value="Admiral">Admiral</button>
-      <input its-control="title" type="checkbox" name="title" value="Admiral">
-      <input its-control="title" type="radio" name="title" value="Admiral">
-      <button its-control="title" value="Commander">Commander</button>
-      <input its-control="title" type="checkbox" name="title" value="Commander">
-      <input its-control="title" type="radio" name="title" value="Commander">
-      <input its-control="title" type="text" style="width:auto; display:inline-block;">
-      <br><br>
-      <p>Greetings <span its-view="title"></span> <span its-view="name"><span></p>
+      
       <br>
 <pre>
 &lt;!-- its-framework --&gt;

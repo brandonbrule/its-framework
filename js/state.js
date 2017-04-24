@@ -36,9 +36,10 @@ var State = (function() {
           
           // its-control="OBJ.obj.prop"
           if(control_type.indexOf('.') !== -1){
+            if(control_value){
             var str_arr = control_type.split('.');
-            buildObjectFromString(state, str_arr, control_value);
-
+              buildObjectFromString(state, str_arr, control_value);
+            }
 
           // Standard state.prop relationship
           } else {
@@ -128,7 +129,6 @@ var State = (function() {
       
     }
     
-    
 
     
     // Initial Load
@@ -140,6 +140,8 @@ var State = (function() {
     if(data.event_type === 'load'){
       updateAll();
     }
+
+
 
 
     // Yay Here's the State Object

@@ -173,6 +173,9 @@ var Views = (function() {
     [].forEach.call(cache.views.element, function(element){
       var control = element.getAttribute('its-view');
       var value = state[control];
+      
+      // If the state has a coorisponding value
+      // Update the innerHTML, or value if its an input
       if(value){
         if (element.nodeName === 'TEXTAREA' || element.nodeName === 'INPUT'){
           element.value = value;
