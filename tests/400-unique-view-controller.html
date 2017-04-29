@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>its-framework - flux inspired javascript starting point</title>
+
+  </head>
+
+  <body>
+    <script>
+    function createElements(type, ele){
+    var html = document.createElement('div');
+      for(var i = 0; i < 1000; i++){
+        var el = document.createElement(ele);
+        el.setAttribute(type, 'test');
+        html.appendChild(el);
+      }
+      document.body.appendChild(html);
+    }
+
+    createElements('its-control', 'input');
+   createElements('its-view', 'p');
+    </script>
+    <script src='http://brandonbrule.github.io/itsa/js/itsa.js'></script>
+    <script src="../js/actions.js"></script>
+    <script src="../js/dispatcher.js"></script>
+    <script src="../js/state.js"></script>
+    <script src="../js/views.js"></script>
+
+    <script>
+    var Store = (function() {
+
+      // All Modules
+      // Are Purely Optional
+      // Add your own Functions
+      // Your funtion must determine if data matters
+      var init = function(ITS) {
+        //its.a(ITS);
+
+        // Dynamically Added
+        // Dynamic added Views will need to update view cache
+        // see Dynamic Module for Example - Views.cacheViews();
+        //Dynamic.element(ITS.ev); 
+
+
+        // Button Active
+        // Simple module that styles buttons
+        //Buttons.init(ITS.ev);
+
+        
+        // Help Module
+        // Export.state is tied to the State Module
+        // Prints State and Event Chain
+        //Help.state(ITS.state, document.querySelector('[its-view="state"]'));
+        //Help.view(ITS.ev, document.querySelector('[its-view="event"]'));
+      };
+
+      return {
+        init: init
+      };
+
+    })();
+    </script>
+  
+  </body>
+</html>
