@@ -14,35 +14,35 @@
     Above Example:
     <hr>
     <pre>
-      &lt;span its-view=&quot;test-prop.nest.nest1.lvl1str&quot;&gt;&lt;span&gt;
-      &lt;span its-view=&quot;update-state-str&quot;&gt;&lt;span&gt;
+&lt;span its-view=&quot;test-prop.nest.nest1.lvl1str&quot;&gt;&lt;span&gt;
+&lt;span its-view=&quot;update-state-str&quot;&gt;&lt;span&gt;
     </pre>
     <hr>
     <pre>
-      var init = function(ITS) {
-        if(ITS.ev.event_type === 'load'){
-          var data = {
-            nest: {
-              nest1: {
-                lvl1str: 'Value nested from test-prop.nest.nest1.lvl1str'
-              },
-              nest2: {
-                lvl1nest: {
-                  lvl2str: 'hi'
-                }
-              }
-            },
-            lvl0str: 'just a str',
-            lvl0num: 2
-          };
-          // Add the Object to the State under test-prop
-          State.Add('test-add-object', data);
-
-          // Set State property update-state-str to hello there
-          State.Add('update-state-str', 'hello there');
+var init = function(ITS) {
+  if(ITS.ev.event_type === 'load'){
+    var data = {
+      nest: {
+        nest1: {
+          lvl1str: 'Value nested from test-prop.nest.nest1.lvl1str'
+        },
+        nest2: {
+          lvl1nest: {
+            lvl2str: 'hi'
+          }
         }
+      },
+      lvl0str: 'just a str',
+      lvl0num: 2
+    };
+    // Add the Object to the State under test-prop
+    State.Add('test-add-object', data);
 
-      };
+    // Set State property update-state-str to hello there
+    State.Add('update-state-str', 'hello there');
+  }
+
+};
     </pre>
 <!--     <hr>
     <h2>other its-framework tests</h2>
