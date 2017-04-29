@@ -107,7 +107,7 @@ var State = (function() {
 
   
 
-  var Add = function(control, value){
+  var Set = function(control, value){
     var state = State.Obj();
     state[control] = value;
     
@@ -196,7 +196,7 @@ var State = (function() {
 
   return {
     init: init,
-    Add: Add,
+    Set: Set,
     Obj: Obj,
     updateAll: updateAll
   };

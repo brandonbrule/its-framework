@@ -7,9 +7,9 @@
   </head>
 
   <body>
-    <h1>State.Add('prop', data);</h1>
+    <h1>State.Set('prop', data);</h1>
 
-    <p>ITS.state.test-add-object.nest.nest1.lvl1str: <strong its-view="test-add-object.nest.nest1.lvl1str"></strong></p>
+    <p>ITS.state.test-set-object.nest.nest1.lvl1str: <strong its-view="test-set-object.nest.nest1.lvl1str"></strong></p>
     <p>ITS.state.update-state-str: <strong its-view="update-state-str"></strong></p>
     Above Example:
     <hr>
@@ -36,10 +36,10 @@ var init = function(ITS) {
       lvl0num: 2
     };
     // Add the Object to the State under test-prop
-    State.Add('test-add-object', data);
+    State.Set('test-set-object', data);
 
     // Set State property update-state-str to hello there
-    State.Add('update-state-str', 'hello there');
+    State.Set('update-state-str', 'hello there');
   }
 
 };
@@ -95,8 +95,8 @@ var init = function(ITS) {
             lvl0str: 'just a str',
             lvl0num: 2
           };
-          State.Add('test-add-object', data);
-          State.Add('update-state-str', 'hello there');
+          State.Set('test-add-object', data);
+          State.Set('update-state-str', 'hello there');
 
           its.a(State.Obj(), 'State');
         }

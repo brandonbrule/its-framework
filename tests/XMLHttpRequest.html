@@ -161,7 +161,7 @@ var DealWithLocation = (function() {
           }
           
           // Add Response to its-framework state
-          State.Add(ITS.ev.value, response);
+          State.Set(ITS.ev.value, response);
         };
         
         xhttp.open("GET", url, true);
