@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>its-framework - flux inspired javascript starting point</title>
+
+  </head>
+
+  <body>
+    <h1>State.Set('prop', data);</h1>
+
+    <p>ITS.state.test-set-object.nest.nest1.lvl1str: <strong its-view="test-set-object.nest.nest1.lvl1str"></strong></p>
+    <p>ITS.state.update-state-str: <strong its-view="update-state-str"></strong></p>
+    Above Example:
+    <hr>
+    <pre>
+&lt;span its-view=&quot;test-prop.nest.nest1.lvl1str&quot;&gt;&lt;span&gt;
+&lt;span its-view=&quot;update-state-str&quot;&gt;&lt;span&gt;
+    </pre>
+    <hr>
+    <pre>
+var init = function(ITS) {
+  if(ITS.ev.event_type === 'load'){
+    var data = {
+      nest: {
+        nest1: {
+          lvl1str: 'Value nested from test-prop.nest.nest1.lvl1str'
+        },
+        nest2: {
+          lvl1nest: {
+            lvl2str: 'hi'
+          }
+        }
+      },
+      lvl0str: 'just a str',
+      lvl0num: 2
+    };
+    // Add the Object to the State under test-prop
+    State.Set('test-set-object', data);
+
+    // Set State property update-state-str to hello there
+    State.Set('update-state-str', 'hello there');
+  }
+
+};
+    </pre>
+<!--     <hr>
+    <h2>other its-framework tests</h2>
+    <hr>
+    <div>
+
+        <label style="display:inline-block;">Person.id.name.first html-filled</label>
+        <input style="display:inline-block; width: 250px" its-control="Person.id.name.first" value="test">
+        <p>Person.id.name.first html-filled: <strong its-view="Person.id.name.first"></strong></p>
+        <hr>
+        <label style="display:inline-block;">Person.id.name.last html</label>
+        <input style="display:inline; width: 250px" its-control="Person.id.name.last">
+        <p>Person.id.name.last html: <strong its-view="Person.id.name.last"></strong></p>
+        <hr>
+        <label style="display:inline-block;">state.prop</label>
+        <input style="display:inline; width: 250px" its-control="stateprop">
+        <p>state.prop: <strong its-view="stateprop"></strong></p>
+        <hr>
+        <label style="display:inline-block;">state.prop filled</label>
+        <input style="display:inline; width: 250px" its-control="stateprop-filled" value="here from html">
+        <p>state.prop filled: <strong its-view="stateprop-filled"></strong></p>
+
+    </div> -->
+    <script>
+
+    </script>
+    <script src='http://brandonbrule.github.io/itsa/js/itsa.js'></script>
+    <script src="../js/actions.js"></script>
+    <script src="../js/dispatcher.js"></script>
+    <script src="../js/state.js"></script>
+    <script src="../js/views.js"></script>
+
+    <script>
+    var Store = (function() {
+
+      // Test State.Add
+      var init = function(ITS) {
+        if(ITS.ev.event_type === 'load'){
+          var data = {
+            nest: {
+              nest1: {
+                lvl1str: 'Value nested from test-prop.nest.nest1.lvl1str'
+              },
+              nest2: {
+                lvl1nest: {
+                  lvl2str: 'hi'
+                }
+              }
+            },
+            lvl0str: 'just a str',
+            lvl0num: 2
+          };
+          State.Set('test-add-object', data);
+          State.Set('update-state-str', 'hello there');
+
+          its.a(State.Obj(), 'State');
+        }
+
+      };
+
+      return {
+        init: init
+      };
+
+    })();
+    </script>
+  
+  </body>
+</html>

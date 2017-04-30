@@ -43,13 +43,52 @@ var Views = (function() {
   };
 
 
+  var returnNestedProperty = function(str, master_object) {
+    
+    // Break String Up by Period
+    // This will form a new array of each "property"
+    var str_array = str.split('.');
+    
+    // Hold a copy of each nested object properties.
+    var tmp_obj = null;
+
+    // Iterate over the input properties
+    for (var i = 0; i < str_array.length; i++) {
+      var current = str_array[i];
+      
+      // If tmp_obj initially is null
+      // On the first iteration of object properties
+      // We assign the first property of the State object to tmp_object
+      if (!tmp_obj) {
+        tmp_obj = master_object[current];
+        
+      // If tmp_obj is an object already
+      // We will be on the next level of the object
+      // At this level we're going to set tmp_obj
+      // To the next nested object property.
+      } else {
+        tmp_obj = tmp_obj[current];
+      }
+      
+    }
+
+    return tmp_obj;
+
+  };
+
+
   // Get Reference Element From Cache Array
   // This is called twice, for its-control and its-view elements.
   // This needs to run twice because its possible to have uneven view/control ratio
-  var update = function(data, type) {
+  var update = function(control, value, type) {
+    var indexes;
+    if(value !== null && value.indexOf('.') !== -1){
+      indexes = returnIndexes(cache[type].type, value);
+      value = returnNestedProperty(value, State.Obj());
+    } else {
+      indexes = returnIndexes(cache[type].type, control);
+    }
 
-    // This returns an array of the cache index positions of the input control
-    var indexes = returnIndexes(cache[type].type, data.control);
 
     // Updates the value of the elements from cache array
     // called twice for views and controls.
@@ -64,26 +103,26 @@ var Views = (function() {
 
           // Max range adjustments if needed
           if (element.getAttribute('type') === 'number' && element.getAttribute('type') === 'range'){
-            if (element.max < data.value && !element.max){
-              element.max = data.value;
+            if (element.max < value && !element.max){
+              element.max = value;
             }
           }
 
           // Keep other input types in sync
           if ( element.getAttribute('type') !== 'radio' && element.getAttribute('type') !== 'checkbox' && element.getAttribute('type') !== 'submit'){
-            element.value = data.value;
+            element.value = value;
           }
 
           if (element.getAttribute('type') === 'radio' || element.getAttribute('type') === 'checkbox'){
-            forButtons(element, data.control, data.value);
+            forButtons(element, control, value);
           }
 
       } else {
-        forButtons(element, data.control, data.value);
+        forButtons(element, control, value);
       }
 
     } else {
-      element.innerHTML = data.value;
+      element.innerHTML = value;
     }
     });
   };
@@ -116,13 +155,17 @@ var Views = (function() {
 
   // Update Control and View Elements From Cache Array
   // Update Values from a Fresh Reference to the State Object.
-  var updateAll = function(){
-    var state = State.Obj();
+  var updateAll = function(ITS){
+    state = ITS.state;
 
     // Update Control Elements
     [].forEach.call(cache.controls.element, function(element){
       var control = element.getAttribute('its-control');
       var value = state[control];
+      
+      if(control !== null && control.indexOf('.') !== -1){
+        value = returnNestedProperty(control, state);
+      }
 
       // If theres a value
       if (value){
@@ -173,6 +216,10 @@ var Views = (function() {
     [].forEach.call(cache.views.element, function(element){
       var control = element.getAttribute('its-view');
       var value = state[control];
+
+      if(control !== null && control.indexOf('.') !== -1){
+        value = returnNestedProperty(control, state);
+      }
       
       // If the state has a coorisponding value
       // Update the innerHTML, or value if its an input
@@ -186,19 +233,19 @@ var Views = (function() {
     });
   };
   
-  var init = function(data) {
-    if (data.changed && data.control) {
-      update(data, 'views');
-      update(data, 'controls');
+  var init = function(ITS) {
+    if (ITS.ev.changed && ITS.ev.control) {
+      update(ITS.ev.control, ITS.ev.value, 'views');
+      update(ITS.ev.control, ITS.ev.value, 'controls');
     }
 
-    if (data.nodeName === 'BUTTON'){
-      update(data, 'views');
+    if (ITS.ev.nodeName === 'BUTTON'){
+      update(ITS.ev.control, ITS.ev.value, 'views');
     }
 
-    if (data.event_type === 'load'){
+    if (ITS.ev.event_type === 'load'){
       cacheViews();
-      updateAll();
+      updateAll(ITS);
     }
 
   };
@@ -206,6 +253,7 @@ var Views = (function() {
   return {
     init: init,
     cacheViews: cacheViews,
+    update: update,
     updateAll: updateAll
   };
 

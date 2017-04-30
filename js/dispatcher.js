@@ -197,19 +197,20 @@ var Dispatch = (function() {
         ev: ev,
         state: state
       };
+
       // State Module
       // State of all its-control
       
 
       // Update its-view elements 
       // with coorisponding control value.
-      Views.init(ev);
+      Views.init(data);
       
       if (typeof Store != "undefined") {
         Store.init(data);
       }
   };
   return {
-    init: init
+    init: init,
   };
 })();

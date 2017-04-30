@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>its-framework - XMLHttpRequest</title>
+
+  </head>
+
+  <body>
+    <h1>State.Add('prop', XMLHttpRequest);</h1>
+
+    <button its-control="request-data" value="login" data-url="https://randomuser.me/api/?results=1">Login Request</button>
+    <p>its-view="login.username": <strong its-view="login.username"></strong></p>
+
+    <button its-control="request-data" value="location" data-url="https://randomuser.me/api/?results=1">Location Request</button>
+    <p>its-view="location.street" : <strong its-view="location.street"></strong></p>
+    <hr>
+    
+    
+    Above Example:
+    <hr>
+    <pre>
+&lt;button its-control="request-data" value="login" data-url="https://randomuser.me/api/?results=1"&gt;Login Request&lt;/button&gt;
+&lt;p&gt;its-view="login.username": &lt;strong its-view="login.username"&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;button its-control="request-data" value="location" data-url="https://randomuser.me/api/?results=1"&gt;Location Request&lt;/button&gt;
+&lt;p&gt;its-view="location.street" : &lt;strong its-view="location.street"&gt;&lt;/strong&gt;&lt;/p&gt;
+    </pre>
+    <hr>
+    js
+    <hr>
+    <pre>
+// Organize App
+// ReqData AjaxRequest based off URL from HTML attributes
+var Store = (function() {
+  // Call all your modules in here.
+  // Pass ITS object to each module
+  var init = function(ITS) {
+    ReqData.init(ITS);
+    DealWithLogin.init(ITS);
+    DealWithLocation.init(ITS);
+  };
+
+  return {
+    init: init
+  };
+})();
+
+
+// AJAX
+// Set its-framework state to response
+// State.add(response);
+// Lazy 'loading', 'initial request' checks
+var ReqData = (function(url) {
+  var sendRequest = function(url, ITS) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      var response;
+      if (this.status === 200) {
+        if (this.readyState !== 4) {
+          response = "loading";
+        } else {
+          response = JSON.parse(xhttp.responseText).results[0][ITS.ev.value];
+        }
+      } else {
+        response = "Initial Request";
+      }
+      
+      // Add Response to its-framework state
+      State.Add(ITS.ev.value, response);
+    };
+    
+    xhttp.open("GET", url, true);
+    xhttp.send();
+  };
+  
+  // If HTML Input has its-control="request-data"
+  var init = function(ITS) {
+    its.clearAll();
+    if (ITS.ev.control === "request-data") {
+      var url = ITS.ev.element.getAttribute("data-url");
+      sendRequest(url, ITS);
+    }
+  };
+  return {
+    init: init
+  };
+})();
+
+
+
+// You do whatever with the login URL callback
+var DealWithLogin = (function() {
+  var init = function(ITS) {
+    if (typeof ITS.state.login === "object") {
+      its.a(ITS.state, "DealWithLogin");
+    }
+  };
+  return {
+    init: init
+  };
+})();
+
+
+// You do whatever with the location URL callback
+var DealWithLocation = (function() {
+  var init = function(ITS) {
+    if (typeof ITS.state.location === "object") {
+      its.a(ITS.state, "DealWithLocation");
+    }
+  };
+  return {
+    init: init
+  };
+})();
+    </pre>
+    <script>
+
+    </script>
+    <script src='http://brandonbrule.github.io/itsa/js/itsa.js'></script>
+    <script src="../js/actions.js"></script>
+    <script src="../js/dispatcher.js"></script>
+    <script src="../js/state.js"></script>
+    <script src="../js/views.js"></script>
+
+    <script>
+    // Organize App
+    // ReqData AjaxRequest based off URL from HTML attributes
+    var Store = (function() {
+      // Call all your modules in here.
+      // Pass ITS object to each module
+      var init = function(ITS) {
+        ReqData.init(ITS);
+        DealWithLogin.init(ITS);
+        DealWithLocation.init(ITS);
+      };
+
+      return {
+        init: init
+      };
+    })();
+
+
+    // AJAX
+    // Set its-framework state to response
+    // State.add(response);
+    // Lazy 'loading', 'initial request' checks
+    var ReqData = (function(url) {
+      var sendRequest = function(url, ITS) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          var response;
+          if (this.status === 200) {
+            if (this.readyState !== 4) {
+              response = "loading";
+            } else {
+              response = JSON.parse(xhttp.responseText).results[0][ITS.ev.value];
+            }
+          } else {
+            response = "Initial Request";
+          }
+          
+          // Add Response to its-framework state
+          State.Set(ITS.ev.value, response);
+        };
+        
+        xhttp.open("GET", url, true);
+        xhttp.send();
+      };
+      
+      // If HTML Input has its-control="request-data"
+      var init = function(ITS) {
+        its.clearAll();
+        if (ITS.ev.control === "request-data") {
+          var url = ITS.ev.element.getAttribute("data-url");
+          sendRequest(url, ITS);
+        }
+      };
+      return {
+        init: init
+      };
+    })();
+
+
+
+    // You do whatever with the login URL callback
+    var DealWithLogin = (function() {
+      var init = function(ITS) {
+        if (typeof ITS.state.login === "object") {
+          its.a(ITS.state, "DealWithLogin");
+        }
+      };
+      return {
+        init: init
+      };
+    })();
+
+
+    // You do whatever with the location URL callback
+    var DealWithLocation = (function() {
+      var init = function(ITS) {
+        if (typeof ITS.state.location === "object") {
+          its.a(ITS.state, "DealWithLocation");
+        }
+      };
+      return {
+        init: init
+      };
+    })();
+
+    </script>
+  
+  </body>
+</html>

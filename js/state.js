@@ -9,6 +9,31 @@ var State = (function() {
     return state;
   }
 
+
+  // Return Arr of Strings like Obj.Prop.obj.prop
+  var strFromObj = function(label, obj) {
+    var label = label + '.';
+    var str = label;
+    var arr = [];
+
+    function eachRecursive(obj) {
+      for (var k in obj) {
+        str = str + k;
+        if (typeof obj[k] == "object" && obj[k] !== null) {
+          str = str + ".";
+          eachRecursive(obj[k]);
+        } else {
+          arr.push(str);
+          str = label;
+        }
+      }
+
+      return arr;
+    }
+
+    return eachRecursive(obj);
+  };
+
   var buildObjectFromString = function(state, str_arr, value){
     lastKeyIndex = str_arr.length-1;
    for (var i = 0; i < lastKeyIndex; ++ i) {
@@ -78,6 +103,24 @@ var State = (function() {
             }
           }
       });
+  };
+
+  
+
+  var Set = function(control, value){
+    var state = State.Obj();
+    state[control] = value;
+    
+    if(state[control] !== null && typeof state[control] === 'object'){
+      var str_arr = strFromObj(control, state[control]);
+      [].forEach.call(str_arr, function(obj_str){
+        Views.update(control, obj_str, 'views');
+      });
+    } else {
+      Views.update(control, value, 'views');
+    }
+
+    
   };
 
   var init = function(data) {
@@ -153,6 +196,7 @@ var State = (function() {
 
   return {
     init: init,
+    Set: Set,
     Obj: Obj,
     updateAll: updateAll
   };
