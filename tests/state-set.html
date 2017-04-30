@@ -2,7 +2,7 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>its-framework - flux inspired javascript starting point</title>
+    <title>its-framework - State.Set('id', data)</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
     h1{
@@ -33,20 +33,20 @@
     <hr>
 <pre>
 
-    var data = {
-      nest: {
-        nest2: {
-          lvl2prop: 'Value from test-set-object.nest.nest2.lvl2prop'
-        }
-      },
-      lvl1prop: 'value from lvl1prop'
-    };
+var data = {
+  nest: {
+    nest2: {
+      lvl2prop: 'Value from test-set-object.nest.nest2.lvl2prop'
+    }
+  },
+  lvl1prop: 'value from lvl1prop'
+};
 
-    // Set data above to its-framework state under 'test-set-object' property
-    State.Set('test-set-object', data);
+// Set data above to its-framework state under 'test-set-object' property
+State.Set('test-set-object', data);
 
-    // Set a top level global state in its-framework. update-state-prop: 'hello there'
-    State.Set('update-state-prop', 'hello there');
+// Set a top level global state in its-framework. update-state-prop: 'hello there'
+State.Set('update-state-prop', 'hello there');
 
 </pre>
   </div>
