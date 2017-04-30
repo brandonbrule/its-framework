@@ -30,10 +30,11 @@ body {
 	text-align: center;
 }
 
-[name="item"] div {
+.result div {
 	padding: 20px;
 	margin: 20px;
 	border: 1px solid #000;
+	text-align: center;
 }
 
 button.pretty {

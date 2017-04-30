@@ -8,43 +8,54 @@
 
 	<div class="test-container">
 		<h1>its FRAMEWORK PERFORMANCE TEST</h1>
+		<div class="center">
+			<button id="start-tests" class="pretty start">Start</button>
+		</div>
 		<div name="item">
 			<h4>
 				Testing 100 concurrent inputs.
 			</h4>
+			<div class="result"></div>
 			<div its-test="its-control" its-test-amount="100"></div>
 		</div>
 		<div name="item">
 			<h4>
 				Testing 1000 concurrent inputs.
 			</h4>
+			<div class="result"></div>
 			<div its-test="its-control" its-test-amount="1000"></div>
 		</div>
 		<div name="item">
 			<h4>
 				Testing 50000 concurrent inputs.
 			</h4>
+			<div class="result"></div>
 			<div its-test="its-control" its-test-amount="50000"></div>
 		</div>
 		<div name="item">
 			<h4>
 				Testing 100000 concurrent inputs.
 			</h4>
+			<div class="result"></div>
 			<div its-test="its-control" its-test-amount="100000"></div>
 		</div>
-		<div name="item">
+		<!-- <div name="item">
 			<h4>
 				Testing 500000 concurrent inputs.
 			</h4>
 			<div its-test="its-control" its-test-amount="500000"></div>
-		</div>
+		</div> -->
 	</div>
 
     <script src="full-its.js"></script>
     <script src="js/performance.js"></script>
     <script src="https://brandonbrule.github.io/itsa/js/itsa.js"></script>
     <script type="text/javascript">
-		PerformanceTest.start('item');
+    	var start_button = document.getElementById("start-tests");
+    	start_button.addEventListener("click", function(e) {
+    		PerformanceTest.start('item');
+    		start_button.classList.add('hidden');
+    	});
     </script>
 </body>
 </html>

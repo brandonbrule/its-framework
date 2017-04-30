@@ -58,6 +58,10 @@ var PerformanceTest = (function() {
 			return;
 		}
 		[].forEach.call(elements, function(e) {
+			var result_cont = e.getElementsByClassName('result')[0];
+			var div = e.children[e.children.length - 1];
+			div.classList.add('hidden');
+
 			var chosen = null;
 			[].forEach.call(e.children, function(element) {
 				var its_function = element.getAttribute('its-test');
@@ -75,10 +79,20 @@ var PerformanceTest = (function() {
 				});
 			});
 
-			console.time('yes');
 			chosen.value = rand() + rand() + rand();
+			
+			var start = window.performance.now();
 			chosen.dispatchEvent(customEvent);
-			console.timeEnd('yes');
+			var end = window.performance.now();
+			
+			var result_str = "Time: " + (end - start) + " ms";
+			if (result_cont) {
+				var result = document.createElement('div');
+				result.innerHTML = result_str;
+				result_cont.appendChild(result);
+			} else {
+				console.debug(result_str);
+			}
 		});
 	}
 
