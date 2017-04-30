@@ -3,10 +3,26 @@
   <head>
     <meta charset="UTF-8">
     <title>its-framework - XMLHttpRequest</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+    h1{
+      margin-top: 0;
+      margin-bottom: 10px;
+      float: none;
+    }
+    button{float:left;margin-right: 10px;}
+    p{
+      display: block;
+      float: none;
+      margin-top:10px;
+      margin-bottom: 10px;
+    }
 
+    </style>
   </head>
 
   <body>
+    <div class="col-container header">
     <h1>State.Add('prop', XMLHttpRequest);</h1>
 
     <button its-control="request-data" value="login" data-url="https://randomuser.me/api/?results=1">Login Request</button>
@@ -19,101 +35,17 @@
     
     Above Example:
     <hr>
-    <pre>
-&lt;button its-control="request-data" value="login" data-url="https://randomuser.me/api/?results=1"&gt;Login Request&lt;/button&gt;
-&lt;p&gt;its-view="login.username": &lt;strong its-view="login.username"&gt;&lt;/strong&gt;&lt;/p&gt;
 
-&lt;button its-control="request-data" value="location" data-url="https://randomuser.me/api/?results=1"&gt;Location Request&lt;/button&gt;
-&lt;p&gt;its-view="location.street" : &lt;strong its-view="location.street"&gt;&lt;/strong&gt;&lt;/p&gt;
-    </pre>
+    <p data-height="220" data-theme-id="593" data-slug-hash="PmpopW" data-default-tab="html" data-user="brandonbrule" data-embed-version="2" data-pen-title="its-framework ajax organization" class="codepen">See the Pen <a href="http://codepen.io/brandonbrule/pen/PmpopW/">its-framework ajax organization</a> by Brandon Brule (<a href="http://codepen.io/brandonbrule">@brandonbrule</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
     <hr>
     js
     <hr>
-    <pre>
-// Organize App
-// ReqData AjaxRequest based off URL from HTML attributes
-var Store = (function() {
-  // Call all your modules in here.
-  // Pass ITS object to each module
-  var init = function(ITS) {
-    ReqData.init(ITS);
-    DealWithLogin.init(ITS);
-    DealWithLocation.init(ITS);
-  };
 
-  return {
-    init: init
-  };
-})();
+    <p data-height="1500" data-theme-id="593" data-slug-hash="PmpopW" data-default-tab="js" data-user="brandonbrule" data-embed-version="2" data-pen-title="its-framework ajax organization" class="codepen">See the Pen <a href="http://codepen.io/brandonbrule/pen/PmpopW/">its-framework ajax organization</a> by Brandon Brule (<a href="http://codepen.io/brandonbrule">@brandonbrule</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-
-// AJAX
-// Set its-framework state to response
-// State.add(response);
-// Lazy 'loading', 'initial request' checks
-var ReqData = (function(url) {
-  var sendRequest = function(url, ITS) {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      var response;
-      if (this.status === 200) {
-        if (this.readyState !== 4) {
-          response = "loading";
-        } else {
-          response = JSON.parse(xhttp.responseText).results[0][ITS.ev.value];
-        }
-      } else {
-        response = "Initial Request";
-      }
-      
-      // Add Response to its-framework state
-      State.Add(ITS.ev.value, response);
-    };
-    
-    xhttp.open("GET", url, true);
-    xhttp.send();
-  };
-  
-  // If HTML Input has its-control="request-data"
-  var init = function(ITS) {
-    its.clearAll();
-    if (ITS.ev.control === "request-data") {
-      var url = ITS.ev.element.getAttribute("data-url");
-      sendRequest(url, ITS);
-    }
-  };
-  return {
-    init: init
-  };
-})();
-
-
-
-// You do whatever with the login URL callback
-var DealWithLogin = (function() {
-  var init = function(ITS) {
-    if (typeof ITS.state.login === "object") {
-      its.a(ITS.state, "DealWithLogin");
-    }
-  };
-  return {
-    init: init
-  };
-})();
-
-
-// You do whatever with the location URL callback
-var DealWithLocation = (function() {
-  var init = function(ITS) {
-    if (typeof ITS.state.location === "object") {
-      its.a(ITS.state, "DealWithLocation");
-    }
-  };
-  return {
-    init: init
-  };
-})();
-    </pre>
+  </div>
     <script>
 
     </script>
