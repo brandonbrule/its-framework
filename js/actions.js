@@ -49,6 +49,6 @@ var customEvent = (function() {
 })();
 
 document.addEventListener('its-test', function(e) {
-	console.log("there we go.");
+	console.log(e);
 	Dispatch.init(e);
 });

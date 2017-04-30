@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>its Framework Performance test</title>
+	<link rel="stylesheet" type="text/css" href="css/test.css">
+</head>
+<body>
+
+	<div class="test-container">
+		<h1>its FRAMEWORK PERFORMANCE TEST</h1>
+		<div name="item">
+			<h4>
+				Testing 100 concurrent inputs.
+			</h4>
+			<div its-test="its-control" its-test-amount="100"></div>
+		</div>
+		<div name="item">
+			<h4>
+				Testing 1000 concurrent inputs.
+			</h4>
+			<div its-test="its-control" its-test-amount="1000"></div>
+		</div>
+		<div name="item">
+			<h4>
+				Testing 50000 concurrent inputs.
+			</h4>
+			<div its-test="its-control" its-test-amount="50000"></div>
+		</div>
+		<div name="item">
+			<h4>
+				Testing 100000 concurrent inputs.
+			</h4>
+			<div its-test="its-control" its-test-amount="100000"></div>
+		</div>
+		<div name="item">
+			<h4>
+				Testing 500000 concurrent inputs.
+			</h4>
+			<div its-test="its-control" its-test-amount="500000"></div>
+		</div>
+	</div>
+
+    <script src="full-its.js"></script>
+    <script src="js/performance.js"></script>
+    <script src="https://brandonbrule.github.io/itsa/js/itsa.js"></script>
+    <script type="text/javascript">
+		PerformanceTest.start('item');
+    </script>
+</body>
+</html>

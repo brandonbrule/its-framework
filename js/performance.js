@@ -1,11 +1,19 @@
 var PerformanceTest = (function() {
 
-	var createElements = function(type, amount) {
+	var createElements = function(type, amount, attribute, value) {
 		var elements = [];
 		for (var i = 0; i<amount; i++) {
-			elements.push(document.createElement(type));
+			var element = document.createElement(type);
+			if (attribute && value) {
+				element.setAttribute(attribute, value);
+			}
+			elements.push(element);
 		}
 		return elements;
+	}
+
+	var rand = function() {
+		return Math.random().toString(36).substring(7);
 	}
 
 	var trigger = function(elem) {
@@ -39,11 +47,43 @@ var PerformanceTest = (function() {
 
 	var testAll = function() {
 		test1000Elements();
-		//test10000Elements();
-		//test100000Elements();
+		test10000Elements();
+		test100000Elements();
+	}
+
+	var testFor = function(element_name) {
+		var elements = document.getElementsByName(element_name);
+		if (!elements || !elements.length) {
+			console.error('No elements with name "%s" were found.', element_name);
+			return;
+		}
+		[].forEach.call(elements, function(e) {
+			var chosen = null;
+			[].forEach.call(e.children, function(element) {
+				var its_function = element.getAttribute('its-test');
+				var its_amount = element.getAttribute('its-test-amount');
+				if (!its_function || !its_amount) {
+					return;
+				}
+
+				var new_elements = createElements('input', its_amount, its_function, rand());
+				[].forEach.call(new_elements, function(new_elem) {
+					if (!chosen) {
+						chosen = new_elem;
+					}
+					element.appendChild(new_elem);
+				});
+			});
+
+			console.time('yes');
+			chosen.value = rand() + rand() + rand();
+			chosen.dispatchEvent(customEvent);
+			console.timeEnd('yes');
+		});
 	}
 
 	return {
-		run: testAll
+		run: testAll,
+		start: testFor
 	}
 })();
