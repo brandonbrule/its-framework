@@ -115,9 +115,11 @@ var State = (function() {
       var str_arr = strFromObj(control, state[control]);
       [].forEach.call(str_arr, function(obj_str){
         Views.update(control, obj_str, 'views');
+        Views.update(control, obj_str, 'controls');
       });
     } else {
       Views.update(control, value, 'views');
+      Views.update(control, value, 'controls');
     }
 
     
