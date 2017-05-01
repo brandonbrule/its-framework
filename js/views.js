@@ -80,11 +80,30 @@ var Views = (function() {
   // Get Reference Element From Cache Array
   // This is called twice, for its-control and its-view elements.
   // This needs to run twice because its possible to have uneven view/control ratio
-  var update = function(control, value, type) {
+  var update = function(data) {
+    var control = data.control;
+    var value = data.value;
+    var type = data.type;
     var indexes;
+
     if(value !== null && value.indexOf('.') !== -1){
-      indexes = returnIndexes(cache[type].type, value);
-      value = returnNestedProperty(value, State.Obj());
+
+      // If set state, look for value from state.set action
+      if(data.action === 'state.set'){
+        indexes = returnIndexes(cache[type].type, value);
+
+      // While you're typing, just look up the array with the str.str.str
+      } else {
+        indexes = returnIndexes(cache[type].type, control);
+      }
+      
+      // If there's a value associated with the obj string
+      if(returnNestedProperty(value, State.Obj())){
+        value = returnNestedProperty(value, State.Obj());
+      }
+
+
+    // For Top Lvl State To Control/View Updates
     } else {
       indexes = returnIndexes(cache[type].type, control);
     }
@@ -234,13 +253,20 @@ var Views = (function() {
   };
   
   var init = function(ITS) {
+    var data = {
+      control: ITS.ev.control,
+      value: ITS.ev.value
+    }
     if (ITS.ev.changed && ITS.ev.control) {
-      update(ITS.ev.control, ITS.ev.value, 'views');
-      update(ITS.ev.control, ITS.ev.value, 'controls');
+      data['type'] = 'views';
+      update(data);
+      data['type'] = 'controls';
+      update(data);
     }
 
     if (ITS.ev.nodeName === 'BUTTON'){
-      update(ITS.ev.control, ITS.ev.value, 'views');
+      data['type'] = 'views';
+      update(data);
     }
 
     if (ITS.ev.event_type === 'load'){

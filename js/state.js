@@ -110,16 +110,31 @@ var State = (function() {
   var Set = function(control, value){
     var state = State.Obj();
     state[control] = value;
+    data = {
+      control: control,
+      value: value
+    }
     
     if(state[control] !== null && typeof state[control] === 'object'){
       var str_arr = strFromObj(control, state[control]);
+
       [].forEach.call(str_arr, function(obj_str){
-        Views.update(control, obj_str, 'views');
-        Views.update(control, obj_str, 'controls');
+        data['action'] = 'state.set';
+        data['value'] = obj_str;
+
+        data['type'] = 'views';
+        Views.update(data);
+        
+        data['type'] = 'controls';
+        Views.update(data);
       });
     } else {
-      Views.update(control, value, 'views');
-      Views.update(control, value, 'controls');
+
+      data['type'] = 'views';
+      Views.update(data);
+
+      data['type'] = 'controls';
+      Views.update(data);
     }
 
     
