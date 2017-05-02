@@ -2,7 +2,57 @@
 <html>
 <head>
 	<title>its Framework Performance test</title>
-	<link rel="stylesheet" type="text/css" href="css/test.css">
+	<style>
+	body {
+	background: #4a695c;
+	color: #4a695c;
+	font-family: arial;
+	}
+
+	.center {
+	text-align: center;
+	}
+
+	.hidden {
+	display: none;
+	}
+
+	.right {
+	float: right;
+	}
+
+	.test-container {
+	border: 5px solid #275040;
+	max-width: 960px;
+	width: 80%;
+	background: #95c7b3;
+	color: #4a695c;
+	margin: 0 auto;
+	padding: 10px;	
+	}
+
+	.test-container h1 {
+	text-align: center;
+	}
+
+	.result div {
+	padding: 20px;
+	margin: 20px;
+	border: 1px solid #000;
+	text-align: center;
+	}
+
+	button.pretty {
+	border-radius: 20px;
+	outline: none;
+	padding: 7px 15px;
+	}
+
+	button.start {
+	color: #fff;
+	background: #4a695c;
+	}
+	</style>
 </head>
 <body>
 
@@ -23,21 +73,21 @@
 				Testing 1000 concurrent inputs.
 			</h4>
 			<div class="result"></div>
-			<div its-test="its-control" its-test-amount="1000"></div>
+			<div its-test="its-control" its-test-amount="300"></div>
 		</div>
 		<div name="item">
 			<h4>
 				Testing 50000 concurrent inputs.
 			</h4>
 			<div class="result"></div>
-			<div its-test="its-control" its-test-amount="50000"></div>
+			<div its-test="its-control" its-test-amount="400"></div>
 		</div>
 		<div name="item">
 			<h4>
 				Testing 100000 concurrent inputs.
 			</h4>
 			<div class="result"></div>
-			<div its-test="its-control" its-test-amount="100000"></div>
+			<div its-test="its-control" its-test-amount="500"></div>
 		</div>
 		<!-- <div name="item">
 			<h4>
@@ -49,14 +99,28 @@
 
 
     <script src='http://brandonbrule.github.io/itsa/js/itsa.js'></script>
-    <script src="js/actions.js"></script>
-    <script src="js/dispatcher.js"></script>
-    <script src="js/state.js"></script>
-    <script src="js/views.js"></script>
-    <script src="js/store.js"></script>
 
 
-    <script src="js/stores/dynamic.js"></script>
+
+    <!-- Custom Action for its-test -->
+    <script>
+	var customEvent = (function() {
+		var event = document.createEvent("HTMLEvents");
+		event.initEvent("its-test", true, true);
+		event.eventName = "its-test";
+		return event;
+	})();
+
+	document.addEventListener('its-test', function(e) {
+		console.log(e);
+		Dispatch.init(e);
+	});
+	</script>
+    <script src="../js/actions.js"></script>
+    <script src="../js/dispatcher.js"></script>
+    <script src="../js/state.js"></script>
+    <script src="../js/views.js"></script>
+
     <script src="js/performance.js"></script>
     
     <script type="text/javascript">

@@ -25,8 +25,8 @@ var Store = (function() {
     // Help Module
     // Export.state is tied to the State Module
     // Prints State and Event Chain
-    //Help.state(ITS.state, document.querySelector('[its-view="state"]'));
-    //Help.view(ITS.ev, document.querySelector('[its-view="event"]'));
+    Help.state(ITS.state, document.querySelector('[its-view="state"]'));
+    Help.view(ITS.ev, document.querySelector('[its-view="event"]'));
   };
 
   return {

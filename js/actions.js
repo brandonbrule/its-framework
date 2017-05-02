@@ -39,16 +39,3 @@ document.addEventListener('click', function(e) {
 window.addEventListener("load", function(e){
 	Dispatch.init(e);
 });
-
-// Create custom event
-var customEvent = (function() {
-	var event = document.createEvent("HTMLEvents");
-	event.initEvent("its-test", true, true);
-	event.eventName = "its-test";
-	return event;
-})();
-
-document.addEventListener('its-test', function(e) {
-	console.log(e);
-	Dispatch.init(e);
-});
