@@ -12,10 +12,10 @@ html {
 
 .col-container {
   max-width: 810px;
-  margin: 1% auto; }
-  @media screen and (min-width: 920px) {
-    .col-container {
-      margin: 1% auto; } }
+  margin-left: 340px; }
+
+.col-container .col-container {
+  margin-left: 0; }
 
 body {
   font-family: arial;
@@ -79,8 +79,17 @@ fieldset {
 
 .header {
   padding: 1.5em;
-  margin: 2em auto;
+  margin: 2em 0 2em 340px;
   border: 5px solid #95c7b3; }
+
+.sidebar {
+  position: fixed;
+  background: #fff;
+  top: 0;
+  left: 0;
+  padding: 1.5em;
+  border: 5px solid #95c7b3;
+  width: 300px; }
 
 @media screen and (max-width: 399px) {
   .view-group {

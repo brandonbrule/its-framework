@@ -36,17 +36,21 @@ var State = (function() {
 
   var buildObjectFromString = function(state, str_arr, value){
     lastKeyIndex = str_arr.length-1;
-   for (var i = 0; i < lastKeyIndex; ++ i) {
-     key = str_arr[i];
+    for (var i = 0; i < lastKeyIndex; ++ i) {
+      key = str_arr[i];
 
-     if (!(key in state)){
-       state[key] = {}
-     }
-     state = state[key];
-     
-   }
-   state[str_arr[lastKeyIndex]] = value;
-  }
+      if (!(key in state)){
+        state[key] = {}
+      }
+      state = state[key];
+    }
+
+    if(value){
+      state[str_arr[lastKeyIndex]] = value;
+    } else {
+      delete state[str_arr[lastKeyIndex]];
+    }
+  };
 
   // A Hard Refresh based off Element Info
   // Queries all its-control elements, and updates
@@ -62,7 +66,7 @@ var State = (function() {
           // its-control="OBJ.obj.prop"
           if(control_type.indexOf('.') !== -1){
             if(control_value){
-            var str_arr = control_type.split('.');
+              var str_arr = control_type.split('.');
               buildObjectFromString(state, str_arr, control_value);
             }
 
