@@ -19,8 +19,8 @@ html {
 
 body {
   font-family: arial;
-  background: #4a695c;
-  color: #4a695c;
+  background: #22332c;
+  color: #22332c;
   margin: 0 2%; }
 
 h1 {
@@ -40,7 +40,7 @@ pre {
   font-size: 14px;
   min-height: 30px;
   background: #95c7b3;
-  color: #4a695c;
+  color: #22332c;
   white-space: pre-wrap;
   word-wrap: break-word; }
 
