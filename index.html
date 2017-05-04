@@ -60,12 +60,7 @@
         <label>Preset Value</label>
         <fieldset>
           <div class="col-container">
-            <div class="col-2">
-              <input its-control="preset-value" type="text" value="100">
-            </div>
-            <div class="col-2">
-              <input its-control="preset-value" type="text">
-            </div>
+              <input its-control="preset-value" type="text" value="Already set">
           </div>
         </fieldset>
         <pre its-view="preset-value"></pre>
@@ -122,10 +117,10 @@
         <fieldset>
           <div class="col-container">
             <div class="col-2">
-              <input its-control="shared-types" type="number" max="200" value="" >
+              <input its-control="shared-types" type="number" max="200" >
             </div>
             <div class="col-2">
-              <input its-control="shared-types" type="range" max="200" value="" >
+              <input its-control="shared-types" type="range" max="200">
             </div>
           </div>
         </fieldset>
@@ -164,7 +159,7 @@
             </div>
             <div class="col-3">
               <span>:P</span>
-              <input its-control="radio-option" type="radio" checked name="radiogroup" value=":P">
+              <input its-control="radio-option" type="radio" name="radiogroup" value=":P">
             </div>
             <div class="col-3">
               <span>:O</span>
@@ -179,23 +174,12 @@
         <label>Checkboxes</label>
         <fieldset>
           <div class="col-container">
-            <div class="col-2">
-              <span>One</span>
-              <input its-control="my-checkbox" type="checkbox" name="checkboxgroup" value="One">
-            </div>
-            <div class="col-2">
-              <span>Two</span>
-              <input its-control="my-other-checkbox" type="checkbox" name="checkboxgroup" checked value="Two">
-            </div>
+            <span>Subscribe?</span>
+            <input its-control="subscribe" type="checkbox" name="checkboxgroup" value="true">
           </div>
         </fieldset>
          <div class="col-container">
-            <div class="col-2">
-              <pre its-view="my-checkbox"></pre>
-            </div>
-            <div class="col-2">
-              <pre its-view="my-other-checkbox"></pre>
-            </div>
+            <pre its-view="subscribe"></pre>
           </div>
       </div>
 
